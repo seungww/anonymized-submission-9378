@@ -1,4 +1,4 @@
-# On the Privacy Risks of Platform-Wide Telemetry in Virtual Reality Systems  
+# On the Privacy Risks of Platform-Level Telemetry in Virtual Reality Systems  
 
 This repository contains the inference framework (called **VRScanner**) introduced in our submission. It is designed to fingerprint encrypted traffic generated entirely by the platform OS (i.e., Meta Horzion OS). By analyzing protocol-level metadata from packet sequences, it identifies app usage (i.e., VR application) and in-app behavior (i.e., virtual world) without accessing payload contents.
 
