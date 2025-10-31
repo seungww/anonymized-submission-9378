@@ -1,0 +1,2023 @@
+[2025-07-31 04:52:59,006] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'))
+[2025-07-31 04:56:12,896] [INFO] Processed data from meta-free-apps/meta-ip_len/meta-ip_len.csv:
+[2025-07-31 04:56:12,897] [INFO] (84492, 3000)
+[2025-07-31 04:56:12,897] [INFO] [['656' '94' '52' ... <NA> <NA> <NA>]
+ ['423' '87' '52' ... <NA> <NA> <NA>]
+ ['423' '87' '52' ... <NA> <NA> <NA>]
+ ...
+ ['242' '87' '52' ... '1432' '1432' '64']
+ ['60' '60' '52' ... <NA> <NA> <NA>]
+ ['64' '52' '52' ... '1432' '1432' '1432']]
+[2025-07-31 04:56:13,999] [INFO] Training from 0 to 500 / 3000
+[2025-07-31 04:57:06,253] [INFO] Feature 0 normalized using token
+[2025-07-31 04:57:06,254] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 04:57:06,308] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 04:57:06,308] [INFO] Training...
+[2025-07-31 04:58:00,939] [INFO] Epoch 1/50, ValAcc: 88.49%, TrainLoss: 2.2066, ValLoss: 0.4665, LR: 0.001
+[2025-07-31 04:58:54,055] [INFO] Epoch 2/50, ValAcc: 90.11%, TrainLoss: 0.4865, ValLoss: 0.3989, LR: 0.001
+[2025-07-31 04:59:47,128] [INFO] Epoch 3/50, ValAcc: 90.98%, TrainLoss: 0.3908, ValLoss: 0.3624, LR: 0.001
+[2025-07-31 05:00:40,131] [INFO] Epoch 4/50, ValAcc: 91.59%, TrainLoss: 0.3520, ValLoss: 0.3507, LR: 0.001
+[2025-07-31 05:01:33,189] [INFO] Epoch 5/50, ValAcc: 92.07%, TrainLoss: 0.3371, ValLoss: 0.3401, LR: 0.001
+[2025-07-31 05:02:26,231] [INFO] Epoch 6/50, ValAcc: 91.85%, TrainLoss: 0.3232, ValLoss: 0.3348, LR: 0.001
+[2025-07-31 05:03:19,260] [INFO] Epoch 7/50, ValAcc: 91.96%, TrainLoss: 0.3079, ValLoss: 0.3555, LR: 0.001
+[2025-07-31 05:04:12,244] [INFO] Epoch 8/50, ValAcc: 92.18%, TrainLoss: 0.2947, ValLoss: 0.3276, LR: 0.001
+[2025-07-31 05:05:05,254] [INFO] Epoch 9/50, ValAcc: 92.25%, TrainLoss: 0.2941, ValLoss: 0.3634, LR: 0.001
+[2025-07-31 05:05:58,245] [INFO] Epoch 10/50, ValAcc: 92.15%, TrainLoss: 0.2915, ValLoss: 0.3661, LR: 0.001
+[2025-07-31 05:06:51,283] [INFO] Epoch 11/50, ValAcc: 92.46%, TrainLoss: 0.2933, ValLoss: 0.3584, LR: 0.001
+[2025-07-31 05:07:44,292] [INFO] Epoch 12/50, ValAcc: 92.97%, TrainLoss: 0.2497, ValLoss: 0.3356, LR: 0.0005
+[2025-07-31 05:08:37,399] [INFO] Epoch 13/50, ValAcc: 92.91%, TrainLoss: 0.2379, ValLoss: 0.3605, LR: 0.0005
+[2025-07-31 05:09:30,507] [INFO] Epoch 14/50, ValAcc: 92.80%, TrainLoss: 0.2316, ValLoss: 0.3503, LR: 0.0005
+[2025-07-31 05:10:23,612] [INFO] Epoch 15/50, ValAcc: 92.97%, TrainLoss: 0.2207, ValLoss: 0.3284, LR: 0.00025
+[2025-07-31 05:11:16,726] [INFO] Epoch 16/50, ValAcc: 93.05%, TrainLoss: 0.2133, ValLoss: 0.3654, LR: 0.00025
+[2025-07-31 05:12:09,774] [INFO] Epoch 17/50, ValAcc: 93.18%, TrainLoss: 0.2084, ValLoss: 0.3545, LR: 0.00025
+[2025-07-31 05:13:02,773] [INFO] Epoch 18/50, ValAcc: 93.49%, TrainLoss: 0.2036, ValLoss: 0.3768, LR: 0.000125
+[2025-07-31 05:13:55,783] [INFO] Epoch 19/50, ValAcc: 93.29%, TrainLoss: 0.1977, ValLoss: 0.3653, LR: 0.000125
+[2025-07-31 05:14:48,754] [INFO] Epoch 20/50, ValAcc: 93.24%, TrainLoss: 0.1952, ValLoss: 0.3703, LR: 0.000125
+[2025-07-31 05:15:41,770] [INFO] Epoch 21/50, ValAcc: 93.27%, TrainLoss: 0.1907, ValLoss: 0.3819, LR: 6.25e-05
+[2025-07-31 05:15:41,771] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 05:15:49,775] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_0'),0.9310,0.9335,0.9403,0.9311
+[2025-07-31 05:15:49,782] [INFO] [(0.9310018344280727, 0.9334929302760165, 0.940315456649083, 0.9311266926200781)]
+[2025-07-31 05:15:49,782] [INFO] Training from 100 to 600 / 3000
+[2025-07-31 05:16:39,887] [INFO] Feature 0 normalized using token
+[2025-07-31 05:16:39,887] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 05:16:39,930] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 05:16:39,930] [INFO] Training...
+[2025-07-31 05:17:32,853] [INFO] Epoch 1/50, ValAcc: 50.43%, TrainLoss: 2.9042, ValLoss: 1.8885, LR: 0.001
+[2025-07-31 05:18:25,815] [INFO] Epoch 2/50, ValAcc: 56.49%, TrainLoss: 1.8342, ValLoss: 1.7043, LR: 0.001
+[2025-07-31 05:19:18,787] [INFO] Epoch 3/50, ValAcc: 59.34%, TrainLoss: 1.6737, ValLoss: 1.5863, LR: 0.001
+[2025-07-31 05:20:11,726] [INFO] Epoch 4/50, ValAcc: 61.68%, TrainLoss: 1.5714, ValLoss: 1.5065, LR: 0.001
+[2025-07-31 05:21:04,678] [INFO] Epoch 5/50, ValAcc: 63.23%, TrainLoss: 1.4856, ValLoss: 1.4599, LR: 0.001
+[2025-07-31 05:21:57,647] [INFO] Epoch 6/50, ValAcc: 63.96%, TrainLoss: 1.4293, ValLoss: 1.4208, LR: 0.001
+[2025-07-31 05:22:50,607] [INFO] Epoch 7/50, ValAcc: 65.03%, TrainLoss: 1.3803, ValLoss: 1.3774, LR: 0.001
+[2025-07-31 05:23:43,540] [INFO] Epoch 8/50, ValAcc: 65.18%, TrainLoss: 1.3449, ValLoss: 1.3792, LR: 0.001
+[2025-07-31 05:24:36,492] [INFO] Epoch 9/50, ValAcc: 65.49%, TrainLoss: 1.3208, ValLoss: 1.3666, LR: 0.001
+[2025-07-31 05:25:29,424] [INFO] Epoch 10/50, ValAcc: 66.44%, TrainLoss: 1.3005, ValLoss: 1.3561, LR: 0.001
+[2025-07-31 05:26:22,390] [INFO] Epoch 11/50, ValAcc: 66.37%, TrainLoss: 1.2854, ValLoss: 1.3419, LR: 0.001
+[2025-07-31 05:27:15,294] [INFO] Epoch 12/50, ValAcc: 66.25%, TrainLoss: 1.2727, ValLoss: 1.3588, LR: 0.001
+[2025-07-31 05:28:08,165] [INFO] Epoch 13/50, ValAcc: 66.49%, TrainLoss: 1.2574, ValLoss: 1.3571, LR: 0.001
+[2025-07-31 05:29:01,045] [INFO] Epoch 14/50, ValAcc: 66.47%, TrainLoss: 1.2585, ValLoss: 1.3745, LR: 0.001
+[2025-07-31 05:29:53,913] [INFO] Epoch 15/50, ValAcc: 67.29%, TrainLoss: 1.1921, ValLoss: 1.3223, LR: 0.0005
+[2025-07-31 05:30:46,531] [INFO] Epoch 16/50, ValAcc: 67.40%, TrainLoss: 1.1560, ValLoss: 1.3272, LR: 0.0005
+[2025-07-31 05:31:39,300] [INFO] Epoch 17/50, ValAcc: 67.54%, TrainLoss: 1.1374, ValLoss: 1.3503, LR: 0.0005
+[2025-07-31 05:32:30,316] [INFO] Epoch 18/50, ValAcc: 67.99%, TrainLoss: 1.1231, ValLoss: 1.3262, LR: 0.0005
+[2025-07-31 05:33:21,297] [INFO] Epoch 19/50, ValAcc: 68.20%, TrainLoss: 1.0814, ValLoss: 1.3398, LR: 0.00025
+[2025-07-31 05:34:11,255] [INFO] Epoch 20/50, ValAcc: 68.13%, TrainLoss: 1.0637, ValLoss: 1.3473, LR: 0.00025
+[2025-07-31 05:35:01,945] [INFO] Epoch 21/50, ValAcc: 68.44%, TrainLoss: 1.0479, ValLoss: 1.3703, LR: 0.00025
+[2025-07-31 05:35:54,134] [INFO] Epoch 22/50, ValAcc: 68.34%, TrainLoss: 1.0229, ValLoss: 1.3756, LR: 0.000125
+[2025-07-31 05:36:46,962] [INFO] Epoch 23/50, ValAcc: 68.17%, TrainLoss: 1.0099, ValLoss: 1.3883, LR: 0.000125
+[2025-07-31 05:37:39,579] [INFO] Epoch 24/50, ValAcc: 68.27%, TrainLoss: 0.9968, ValLoss: 1.3877, LR: 0.000125
+[2025-07-31 05:38:32,208] [INFO] Epoch 25/50, ValAcc: 68.31%, TrainLoss: 0.9853, ValLoss: 1.4041, LR: 6.25e-05
+[2025-07-31 05:38:32,209] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 05:38:40,183] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_100'),0.6802,0.7031,0.7500,0.6806
+[2025-07-31 05:38:40,190] [INFO] [(0.6802177643647553, 0.7031296017821016, 0.7500491679181078, 0.6805830951822172)]
+[2025-07-31 05:38:40,190] [INFO] Training from 200 to 700 / 3000
+[2025-07-31 05:39:32,039] [INFO] Feature 0 normalized using token
+[2025-07-31 05:39:32,039] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 05:39:32,068] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 05:39:32,069] [INFO] Training...
+[2025-07-31 05:40:24,218] [INFO] Epoch 1/50, ValAcc: 39.29%, TrainLoss: 3.4164, ValLoss: 2.4936, LR: 0.001
+[2025-07-31 05:41:16,855] [INFO] Epoch 2/50, ValAcc: 45.24%, TrainLoss: 2.4054, ValLoss: 2.2364, LR: 0.001
+[2025-07-31 05:42:09,502] [INFO] Epoch 3/50, ValAcc: 48.06%, TrainLoss: 2.2020, ValLoss: 2.1134, LR: 0.001
+[2025-07-31 05:43:02,144] [INFO] Epoch 4/50, ValAcc: 48.38%, TrainLoss: 2.1054, ValLoss: 2.0932, LR: 0.001
+[2025-07-31 05:43:54,590] [INFO] Epoch 5/50, ValAcc: 49.75%, TrainLoss: 2.0443, ValLoss: 2.0632, LR: 0.001
+[2025-07-31 05:44:46,967] [INFO] Epoch 6/50, ValAcc: 49.46%, TrainLoss: 2.0098, ValLoss: 2.0608, LR: 0.001
+[2025-07-31 05:45:39,390] [INFO] Epoch 7/50, ValAcc: 49.55%, TrainLoss: 1.9813, ValLoss: 2.0716, LR: 0.001
+[2025-07-31 05:46:31,776] [INFO] Epoch 8/50, ValAcc: 50.09%, TrainLoss: 1.9506, ValLoss: 2.0453, LR: 0.001
+[2025-07-31 05:47:24,189] [INFO] Epoch 9/50, ValAcc: 50.27%, TrainLoss: 1.9347, ValLoss: 2.0739, LR: 0.001
+[2025-07-31 05:48:16,598] [INFO] Epoch 10/50, ValAcc: 49.76%, TrainLoss: 1.9211, ValLoss: 2.0533, LR: 0.001
+[2025-07-31 05:49:08,977] [INFO] Epoch 11/50, ValAcc: 50.82%, TrainLoss: 1.9061, ValLoss: 2.0450, LR: 0.001
+[2025-07-31 05:50:01,408] [INFO] Epoch 12/50, ValAcc: 50.51%, TrainLoss: 1.8971, ValLoss: 2.0344, LR: 0.001
+[2025-07-31 05:50:54,048] [INFO] Epoch 13/50, ValAcc: 50.95%, TrainLoss: 1.8879, ValLoss: 2.0656, LR: 0.001
+[2025-07-31 05:51:46,640] [INFO] Epoch 14/50, ValAcc: 50.41%, TrainLoss: 1.8836, ValLoss: 2.0263, LR: 0.001
+[2025-07-31 05:52:39,266] [INFO] Epoch 15/50, ValAcc: 50.76%, TrainLoss: 1.8721, ValLoss: 2.0770, LR: 0.001
+[2025-07-31 05:53:31,880] [INFO] Epoch 16/50, ValAcc: 50.72%, TrainLoss: 1.8705, ValLoss: 2.0720, LR: 0.001
+[2025-07-31 05:54:24,504] [INFO] Epoch 17/50, ValAcc: 51.04%, TrainLoss: 1.8603, ValLoss: 2.0504, LR: 0.001
+[2025-07-31 05:55:17,115] [INFO] Epoch 18/50, ValAcc: 51.41%, TrainLoss: 1.7769, ValLoss: 2.0620, LR: 0.0005
+[2025-07-31 05:56:10,029] [INFO] Epoch 19/50, ValAcc: 51.72%, TrainLoss: 1.7454, ValLoss: 2.0737, LR: 0.0005
+[2025-07-31 05:57:03,253] [INFO] Epoch 20/50, ValAcc: 51.66%, TrainLoss: 1.7242, ValLoss: 2.0683, LR: 0.0005
+[2025-07-31 05:57:56,519] [INFO] Epoch 21/50, ValAcc: 52.53%, TrainLoss: 1.6787, ValLoss: 2.0760, LR: 0.00025
+[2025-07-31 05:58:49,784] [INFO] Epoch 22/50, ValAcc: 52.34%, TrainLoss: 1.6549, ValLoss: 2.0954, LR: 0.00025
+[2025-07-31 05:59:43,053] [INFO] Epoch 23/50, ValAcc: 52.37%, TrainLoss: 1.6385, ValLoss: 2.1147, LR: 0.00025
+[2025-07-31 06:00:36,240] [INFO] Epoch 24/50, ValAcc: 52.46%, TrainLoss: 1.6099, ValLoss: 2.1362, LR: 0.000125
+[2025-07-31 06:01:29,434] [INFO] Epoch 25/50, ValAcc: 52.75%, TrainLoss: 1.5914, ValLoss: 2.1401, LR: 0.000125
+[2025-07-31 06:02:22,602] [INFO] Epoch 26/50, ValAcc: 52.69%, TrainLoss: 1.5852, ValLoss: 2.1592, LR: 0.000125
+[2025-07-31 06:03:15,793] [INFO] Epoch 27/50, ValAcc: 52.53%, TrainLoss: 1.5685, ValLoss: 2.1810, LR: 6.25e-05
+[2025-07-31 06:03:15,794] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 06:03:23,748] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_200'),0.5228,0.5460,0.6069,0.5220
+[2025-07-31 06:03:23,755] [INFO] [(0.5228120007101011, 0.5460080321203006, 0.6069182719528842, 0.5219532695024378)]
+[2025-07-31 06:03:23,755] [INFO] Training from 300 to 800 / 3000
+[2025-07-31 06:04:14,691] [INFO] Feature 0 normalized using token
+[2025-07-31 06:04:14,692] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 06:04:14,721] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 06:04:14,721] [INFO] Training...
+[2025-07-31 06:05:06,750] [INFO] Epoch 1/50, ValAcc: 15.87%, TrainLoss: 4.1888, ValLoss: 3.5250, LR: 0.001
+[2025-07-31 06:05:58,454] [INFO] Epoch 2/50, ValAcc: 28.25%, TrainLoss: 3.3349, ValLoss: 3.0315, LR: 0.001
+[2025-07-31 06:06:52,435] [INFO] Epoch 3/50, ValAcc: 30.52%, TrainLoss: 3.0434, ValLoss: 2.9276, LR: 0.001
+[2025-07-31 06:07:45,695] [INFO] Epoch 4/50, ValAcc: 31.67%, TrainLoss: 2.9313, ValLoss: 2.8874, LR: 0.001
+[2025-07-31 06:08:38,989] [INFO] Epoch 5/50, ValAcc: 31.72%, TrainLoss: 2.8714, ValLoss: 2.8668, LR: 0.001
+[2025-07-31 06:09:32,282] [INFO] Epoch 6/50, ValAcc: 32.86%, TrainLoss: 2.8360, ValLoss: 2.8223, LR: 0.001
+[2025-07-31 06:10:25,559] [INFO] Epoch 7/50, ValAcc: 32.72%, TrainLoss: 2.7983, ValLoss: 2.8627, LR: 0.001
+[2025-07-31 06:11:18,890] [INFO] Epoch 8/50, ValAcc: 33.42%, TrainLoss: 2.7780, ValLoss: 2.7908, LR: 0.001
+[2025-07-31 06:12:12,143] [INFO] Epoch 9/50, ValAcc: 34.05%, TrainLoss: 2.7569, ValLoss: 2.7916, LR: 0.001
+[2025-07-31 06:13:05,457] [INFO] Epoch 10/50, ValAcc: 33.78%, TrainLoss: 2.7399, ValLoss: 2.7748, LR: 0.001
+[2025-07-31 06:13:58,724] [INFO] Epoch 11/50, ValAcc: 33.72%, TrainLoss: 2.7261, ValLoss: 2.7930, LR: 0.001
+[2025-07-31 06:14:51,556] [INFO] Epoch 12/50, ValAcc: 33.89%, TrainLoss: 2.7133, ValLoss: 2.7909, LR: 0.001
+[2025-07-31 06:15:44,148] [INFO] Epoch 13/50, ValAcc: 34.36%, TrainLoss: 2.7121, ValLoss: 2.7888, LR: 0.001
+[2025-07-31 06:16:36,694] [INFO] Epoch 14/50, ValAcc: 34.85%, TrainLoss: 2.6361, ValLoss: 2.7722, LR: 0.0005
+[2025-07-31 06:17:29,309] [INFO] Epoch 15/50, ValAcc: 35.33%, TrainLoss: 2.6040, ValLoss: 2.8009, LR: 0.0005
+[2025-07-31 06:18:22,178] [INFO] Epoch 16/50, ValAcc: 35.24%, TrainLoss: 2.5902, ValLoss: 2.7945, LR: 0.0005
+[2025-07-31 06:19:14,834] [INFO] Epoch 17/50, ValAcc: 35.24%, TrainLoss: 2.5752, ValLoss: 2.8041, LR: 0.0005
+[2025-07-31 06:20:07,456] [INFO] Epoch 18/50, ValAcc: 35.55%, TrainLoss: 2.5379, ValLoss: 2.7847, LR: 0.00025
+[2025-07-31 06:21:00,001] [INFO] Epoch 19/50, ValAcc: 35.61%, TrainLoss: 2.5168, ValLoss: 2.7848, LR: 0.00025
+[2025-07-31 06:21:52,611] [INFO] Epoch 20/50, ValAcc: 35.63%, TrainLoss: 2.4987, ValLoss: 2.8133, LR: 0.00025
+[2025-07-31 06:22:45,239] [INFO] Epoch 21/50, ValAcc: 35.73%, TrainLoss: 2.4768, ValLoss: 2.8164, LR: 0.000125
+[2025-07-31 06:23:37,876] [INFO] Epoch 22/50, ValAcc: 35.64%, TrainLoss: 2.4609, ValLoss: 2.8166, LR: 0.000125
+[2025-07-31 06:24:30,509] [INFO] Epoch 23/50, ValAcc: 36.06%, TrainLoss: 2.4540, ValLoss: 2.8109, LR: 0.000125
+[2025-07-31 06:25:23,139] [INFO] Epoch 24/50, ValAcc: 36.27%, TrainLoss: 2.4368, ValLoss: 2.8337, LR: 6.25e-05
+[2025-07-31 06:25:23,139] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 06:25:31,089] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_300'),0.3659,0.4153,0.5422,0.3655
+[2025-07-31 06:25:31,096] [INFO] [(0.3659388129475117, 0.4153238778624227, 0.5422463248843404, 0.3654832215474878)]
+[2025-07-31 06:25:31,096] [INFO] Training from 400 to 900 / 3000
+[2025-07-31 06:26:20,751] [INFO] Feature 0 normalized using token
+[2025-07-31 06:26:20,751] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 06:26:20,780] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 06:26:20,780] [INFO] Training...
+[2025-07-31 06:27:12,901] [INFO] Epoch 1/50, ValAcc: 8.47%, TrainLoss: 4.3604, ValLoss: 4.0351, LR: 0.001
+[2025-07-31 06:28:05,610] [INFO] Epoch 2/50, ValAcc: 19.81%, TrainLoss: 3.7860, ValLoss: 3.4137, LR: 0.001
+[2025-07-31 06:28:58,313] [INFO] Epoch 3/50, ValAcc: 24.37%, TrainLoss: 3.3739, ValLoss: 3.2740, LR: 0.001
+[2025-07-31 06:29:51,009] [INFO] Epoch 4/50, ValAcc: 26.44%, TrainLoss: 3.2306, ValLoss: 3.1212, LR: 0.001
+[2025-07-31 06:30:43,690] [INFO] Epoch 5/50, ValAcc: 27.12%, TrainLoss: 3.1532, ValLoss: 3.0768, LR: 0.001
+[2025-07-31 06:31:36,379] [INFO] Epoch 6/50, ValAcc: 27.63%, TrainLoss: 3.1026, ValLoss: 3.1011, LR: 0.001
+[2025-07-31 06:32:29,067] [INFO] Epoch 7/50, ValAcc: 27.85%, TrainLoss: 3.0679, ValLoss: 3.0427, LR: 0.001
+[2025-07-31 06:33:21,772] [INFO] Epoch 8/50, ValAcc: 27.95%, TrainLoss: 3.0419, ValLoss: 3.0902, LR: 0.001
+[2025-07-31 06:34:14,285] [INFO] Epoch 9/50, ValAcc: 28.20%, TrainLoss: 3.0242, ValLoss: 3.0700, LR: 0.001
+[2025-07-31 06:35:06,698] [INFO] Epoch 10/50, ValAcc: 28.51%, TrainLoss: 3.0035, ValLoss: 3.0190, LR: 0.001
+[2025-07-31 06:35:59,118] [INFO] Epoch 11/50, ValAcc: 28.73%, TrainLoss: 2.9886, ValLoss: 3.0297, LR: 0.001
+[2025-07-31 06:36:51,516] [INFO] Epoch 12/50, ValAcc: 29.11%, TrainLoss: 2.9771, ValLoss: 3.0245, LR: 0.001
+[2025-07-31 06:37:43,917] [INFO] Epoch 13/50, ValAcc: 29.21%, TrainLoss: 2.9660, ValLoss: 3.0229, LR: 0.001
+[2025-07-31 06:38:36,327] [INFO] Epoch 14/50, ValAcc: 30.18%, TrainLoss: 2.9024, ValLoss: 2.9790, LR: 0.0005
+[2025-07-31 06:39:28,742] [INFO] Epoch 15/50, ValAcc: 30.09%, TrainLoss: 2.8694, ValLoss: 2.9833, LR: 0.0005
+[2025-07-31 06:40:21,177] [INFO] Epoch 16/50, ValAcc: 30.73%, TrainLoss: 2.8496, ValLoss: 3.0053, LR: 0.0005
+[2025-07-31 06:41:13,593] [INFO] Epoch 17/50, ValAcc: 30.41%, TrainLoss: 2.8363, ValLoss: 3.0109, LR: 0.0005
+[2025-07-31 06:42:06,019] [INFO] Epoch 18/50, ValAcc: 30.64%, TrainLoss: 2.7959, ValLoss: 2.9923, LR: 0.00025
+[2025-07-31 06:42:58,444] [INFO] Epoch 19/50, ValAcc: 30.67%, TrainLoss: 2.7749, ValLoss: 3.0265, LR: 0.00025
+[2025-07-31 06:43:50,854] [INFO] Epoch 20/50, ValAcc: 31.02%, TrainLoss: 2.7660, ValLoss: 3.0217, LR: 0.00025
+[2025-07-31 06:44:43,283] [INFO] Epoch 21/50, ValAcc: 31.01%, TrainLoss: 2.7370, ValLoss: 3.0292, LR: 0.000125
+[2025-07-31 06:45:35,715] [INFO] Epoch 22/50, ValAcc: 31.04%, TrainLoss: 2.7243, ValLoss: 3.0292, LR: 0.000125
+[2025-07-31 06:46:28,256] [INFO] Epoch 23/50, ValAcc: 31.10%, TrainLoss: 2.7156, ValLoss: 3.0224, LR: 0.000125
+[2025-07-31 06:47:21,088] [INFO] Epoch 24/50, ValAcc: 31.29%, TrainLoss: 2.7034, ValLoss: 3.0438, LR: 6.25e-05
+[2025-07-31 06:47:21,089] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 06:47:28,949] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_400'),0.3114,0.3607,0.4956,0.3125
+[2025-07-31 06:47:28,956] [INFO] [(0.31137937156044737, 0.360691634578451, 0.49555433086090384, 0.31253944013641544)]
+[2025-07-31 06:47:28,956] [INFO] Training from 500 to 1000 / 3000
+[2025-07-31 06:48:18,092] [INFO] Feature 0 normalized using token
+[2025-07-31 06:48:18,093] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 06:48:18,122] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 06:48:18,122] [INFO] Training...
+[2025-07-31 06:49:10,362] [INFO] Epoch 1/50, ValAcc: 12.00%, TrainLoss: 4.3217, ValLoss: 3.9004, LR: 0.001
+[2025-07-31 06:50:03,139] [INFO] Epoch 2/50, ValAcc: 21.27%, TrainLoss: 3.7175, ValLoss: 3.3965, LR: 0.001
+[2025-07-31 06:50:55,915] [INFO] Epoch 3/50, ValAcc: 23.47%, TrainLoss: 3.4093, ValLoss: 3.2759, LR: 0.001
+[2025-07-31 06:51:48,675] [INFO] Epoch 4/50, ValAcc: 24.05%, TrainLoss: 3.2940, ValLoss: 3.2231, LR: 0.001
+[2025-07-31 06:52:41,437] [INFO] Epoch 5/50, ValAcc: 24.57%, TrainLoss: 3.2345, ValLoss: 3.1805, LR: 0.001
+[2025-07-31 06:53:34,066] [INFO] Epoch 6/50, ValAcc: 25.01%, TrainLoss: 3.1845, ValLoss: 3.1527, LR: 0.001
+[2025-07-31 06:54:26,375] [INFO] Epoch 7/50, ValAcc: 26.26%, TrainLoss: 3.1510, ValLoss: 3.1357, LR: 0.001
+[2025-07-31 06:55:18,679] [INFO] Epoch 8/50, ValAcc: 26.28%, TrainLoss: 3.1288, ValLoss: 3.1057, LR: 0.001
+[2025-07-31 06:56:10,192] [INFO] Epoch 9/50, ValAcc: 26.95%, TrainLoss: 3.1091, ValLoss: 3.1209, LR: 0.001
+[2025-07-31 06:57:02,559] [INFO] Epoch 10/50, ValAcc: 26.85%, TrainLoss: 3.0886, ValLoss: 3.0995, LR: 0.001
+[2025-07-31 06:57:54,005] [INFO] Epoch 11/50, ValAcc: 26.45%, TrainLoss: 3.0774, ValLoss: 3.1264, LR: 0.001
+[2025-07-31 06:58:46,339] [INFO] Epoch 12/50, ValAcc: 26.71%, TrainLoss: 3.0631, ValLoss: 3.0924, LR: 0.001
+[2025-07-31 06:59:38,900] [INFO] Epoch 13/50, ValAcc: 27.27%, TrainLoss: 3.0501, ValLoss: 3.0974, LR: 0.001
+[2025-07-31 07:00:31,634] [INFO] Epoch 14/50, ValAcc: 27.38%, TrainLoss: 3.0424, ValLoss: 3.1166, LR: 0.001
+[2025-07-31 07:01:24,352] [INFO] Epoch 15/50, ValAcc: 27.48%, TrainLoss: 3.0337, ValLoss: 3.0945, LR: 0.001
+[2025-07-31 07:02:16,797] [INFO] Epoch 16/50, ValAcc: 28.26%, TrainLoss: 2.9696, ValLoss: 3.0435, LR: 0.0005
+[2025-07-31 07:03:09,519] [INFO] Epoch 17/50, ValAcc: 28.51%, TrainLoss: 2.9455, ValLoss: 3.0658, LR: 0.0005
+[2025-07-31 07:04:02,269] [INFO] Epoch 18/50, ValAcc: 28.46%, TrainLoss: 2.9262, ValLoss: 3.0824, LR: 0.0005
+[2025-07-31 07:04:55,025] [INFO] Epoch 19/50, ValAcc: 29.01%, TrainLoss: 2.9111, ValLoss: 3.0516, LR: 0.0005
+[2025-07-31 07:05:47,774] [INFO] Epoch 20/50, ValAcc: 29.28%, TrainLoss: 2.8733, ValLoss: 3.0756, LR: 0.00025
+[2025-07-31 07:06:40,560] [INFO] Epoch 21/50, ValAcc: 29.43%, TrainLoss: 2.8567, ValLoss: 3.0487, LR: 0.00025
+[2025-07-31 07:07:33,330] [INFO] Epoch 22/50, ValAcc: 29.31%, TrainLoss: 2.8417, ValLoss: 3.0760, LR: 0.00025
+[2025-07-31 07:08:26,087] [INFO] Epoch 23/50, ValAcc: 29.41%, TrainLoss: 2.8182, ValLoss: 3.0717, LR: 0.000125
+[2025-07-31 07:09:18,402] [INFO] Epoch 24/50, ValAcc: 29.50%, TrainLoss: 2.8034, ValLoss: 3.0846, LR: 0.000125
+[2025-07-31 07:10:10,743] [INFO] Epoch 25/50, ValAcc: 29.60%, TrainLoss: 2.7938, ValLoss: 3.1064, LR: 0.000125
+[2025-07-31 07:11:03,072] [INFO] Epoch 26/50, ValAcc: 29.80%, TrainLoss: 2.7802, ValLoss: 3.1031, LR: 6.25e-05
+[2025-07-31 07:11:03,073] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 07:11:10,922] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_500'),0.2856,0.3381,0.4851,0.2866
+[2025-07-31 07:11:10,929] [INFO] [(0.28563820344399077, 0.33812836307408534, 0.48505555570989856, 0.28656467002564656)]
+[2025-07-31 07:11:10,929] [INFO] Training from 600 to 1100 / 3000
+[2025-07-31 07:11:59,375] [INFO] Feature 0 normalized using token
+[2025-07-31 07:11:59,376] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 07:11:59,403] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 07:11:59,403] [INFO] Training...
+[2025-07-31 07:12:51,505] [INFO] Epoch 1/50, ValAcc: 8.60%, TrainLoss: 4.3461, ValLoss: 3.9939, LR: 0.001
+[2025-07-31 07:13:43,862] [INFO] Epoch 2/50, ValAcc: 16.02%, TrainLoss: 3.8620, ValLoss: 3.6109, LR: 0.001
+[2025-07-31 07:14:36,192] [INFO] Epoch 3/50, ValAcc: 19.64%, TrainLoss: 3.5870, ValLoss: 3.4326, LR: 0.001
+[2025-07-31 07:15:28,521] [INFO] Epoch 4/50, ValAcc: 22.00%, TrainLoss: 3.4247, ValLoss: 3.3368, LR: 0.001
+[2025-07-31 07:16:20,863] [INFO] Epoch 5/50, ValAcc: 23.24%, TrainLoss: 3.3345, ValLoss: 3.2857, LR: 0.001
+[2025-07-31 07:17:13,223] [INFO] Epoch 6/50, ValAcc: 23.92%, TrainLoss: 3.2749, ValLoss: 3.2370, LR: 0.001
+[2025-07-31 07:18:05,567] [INFO] Epoch 7/50, ValAcc: 24.57%, TrainLoss: 3.2278, ValLoss: 3.2038, LR: 0.001
+[2025-07-31 07:18:57,874] [INFO] Epoch 8/50, ValAcc: 24.86%, TrainLoss: 3.1988, ValLoss: 3.2141, LR: 0.001
+[2025-07-31 07:19:50,200] [INFO] Epoch 9/50, ValAcc: 25.83%, TrainLoss: 3.1734, ValLoss: 3.1573, LR: 0.001
+[2025-07-31 07:20:42,510] [INFO] Epoch 10/50, ValAcc: 26.09%, TrainLoss: 3.1547, ValLoss: 3.1678, LR: 0.001
+[2025-07-31 07:21:34,828] [INFO] Epoch 11/50, ValAcc: 26.05%, TrainLoss: 3.1394, ValLoss: 3.1676, LR: 0.001
+[2025-07-31 07:22:27,139] [INFO] Epoch 12/50, ValAcc: 25.64%, TrainLoss: 3.1197, ValLoss: 3.1647, LR: 0.001
+[2025-07-31 07:23:19,763] [INFO] Epoch 13/50, ValAcc: 26.70%, TrainLoss: 3.0549, ValLoss: 3.1437, LR: 0.0005
+[2025-07-31 07:24:12,464] [INFO] Epoch 14/50, ValAcc: 26.71%, TrainLoss: 3.0197, ValLoss: 3.1222, LR: 0.0005
+[2025-07-31 07:25:05,193] [INFO] Epoch 15/50, ValAcc: 26.82%, TrainLoss: 2.9992, ValLoss: 3.1242, LR: 0.0005
+[2025-07-31 07:25:57,901] [INFO] Epoch 16/50, ValAcc: 27.28%, TrainLoss: 2.9817, ValLoss: 3.1347, LR: 0.0005
+[2025-07-31 07:26:50,656] [INFO] Epoch 17/50, ValAcc: 27.23%, TrainLoss: 2.9659, ValLoss: 3.1433, LR: 0.0005
+[2025-07-31 07:27:43,395] [INFO] Epoch 18/50, ValAcc: 27.35%, TrainLoss: 2.9276, ValLoss: 3.1586, LR: 0.00025
+[2025-07-31 07:28:36,136] [INFO] Epoch 19/50, ValAcc: 27.54%, TrainLoss: 2.9067, ValLoss: 3.1555, LR: 0.00025
+[2025-07-31 07:29:28,843] [INFO] Epoch 20/50, ValAcc: 27.60%, TrainLoss: 2.8866, ValLoss: 3.1806, LR: 0.00025
+[2025-07-31 07:30:21,587] [INFO] Epoch 21/50, ValAcc: 28.06%, TrainLoss: 2.8588, ValLoss: 3.1792, LR: 0.000125
+[2025-07-31 07:31:13,924] [INFO] Epoch 22/50, ValAcc: 27.79%, TrainLoss: 2.8457, ValLoss: 3.1726, LR: 0.000125
+[2025-07-31 07:32:06,228] [INFO] Epoch 23/50, ValAcc: 27.64%, TrainLoss: 2.8363, ValLoss: 3.1993, LR: 0.000125
+[2025-07-31 07:32:58,540] [INFO] Epoch 24/50, ValAcc: 27.91%, TrainLoss: 2.8188, ValLoss: 3.1930, LR: 6.25e-05
+[2025-07-31 07:32:58,540] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 07:33:06,365] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_600'),0.2694,0.3151,0.4433,0.2704
+[2025-07-31 07:33:06,372] [INFO] [(0.26936505118646076, 0.3150996400242048, 0.4432696542097414, 0.2704436231782903)]
+[2025-07-31 07:33:06,372] [INFO] Training from 700 to 1200 / 3000
+[2025-07-31 07:33:55,101] [INFO] Feature 0 normalized using token
+[2025-07-31 07:33:55,102] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 07:33:55,132] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 07:33:55,132] [INFO] Training...
+[2025-07-31 07:34:47,525] [INFO] Epoch 1/50, ValAcc: 10.89%, TrainLoss: 4.2601, ValLoss: 3.8587, LR: 0.001
+[2025-07-31 07:35:39,911] [INFO] Epoch 2/50, ValAcc: 17.15%, TrainLoss: 3.7225, ValLoss: 3.5362, LR: 0.001
+[2025-07-31 07:36:32,297] [INFO] Epoch 3/50, ValAcc: 19.11%, TrainLoss: 3.5365, ValLoss: 3.4569, LR: 0.001
+[2025-07-31 07:37:24,682] [INFO] Epoch 4/50, ValAcc: 20.71%, TrainLoss: 3.4309, ValLoss: 3.3856, LR: 0.001
+[2025-07-31 07:38:17,075] [INFO] Epoch 5/50, ValAcc: 21.83%, TrainLoss: 3.3731, ValLoss: 3.3449, LR: 0.001
+[2025-07-31 07:39:09,461] [INFO] Epoch 6/50, ValAcc: 22.21%, TrainLoss: 3.3385, ValLoss: 3.3071, LR: 0.001
+[2025-07-31 07:40:01,863] [INFO] Epoch 7/50, ValAcc: 22.84%, TrainLoss: 3.2997, ValLoss: 3.2676, LR: 0.001
+[2025-07-31 07:40:53,067] [INFO] Epoch 8/50, ValAcc: 22.85%, TrainLoss: 3.2730, ValLoss: 3.3119, LR: 0.001
+[2025-07-31 07:41:45,158] [INFO] Epoch 9/50, ValAcc: 23.30%, TrainLoss: 3.2604, ValLoss: 3.2688, LR: 0.001
+[2025-07-31 07:42:35,853] [INFO] Epoch 10/50, ValAcc: 23.43%, TrainLoss: 3.2399, ValLoss: 3.2419, LR: 0.001
+[2025-07-31 07:43:28,163] [INFO] Epoch 11/50, ValAcc: 23.38%, TrainLoss: 3.2262, ValLoss: 3.2452, LR: 0.001
+[2025-07-31 07:44:20,479] [INFO] Epoch 12/50, ValAcc: 23.87%, TrainLoss: 3.2147, ValLoss: 3.2472, LR: 0.001
+[2025-07-31 07:45:12,772] [INFO] Epoch 13/50, ValAcc: 23.56%, TrainLoss: 3.2049, ValLoss: 3.2525, LR: 0.001
+[2025-07-31 07:46:05,076] [INFO] Epoch 14/50, ValAcc: 24.30%, TrainLoss: 3.1483, ValLoss: 3.2366, LR: 0.0005
+[2025-07-31 07:46:57,374] [INFO] Epoch 15/50, ValAcc: 24.64%, TrainLoss: 3.1076, ValLoss: 3.2321, LR: 0.0005
+[2025-07-31 07:47:49,697] [INFO] Epoch 16/50, ValAcc: 24.39%, TrainLoss: 3.0939, ValLoss: 3.2476, LR: 0.0005
+[2025-07-31 07:48:42,012] [INFO] Epoch 17/50, ValAcc: 24.62%, TrainLoss: 3.0778, ValLoss: 3.2517, LR: 0.0005
+[2025-07-31 07:49:34,320] [INFO] Epoch 18/50, ValAcc: 24.82%, TrainLoss: 3.0617, ValLoss: 3.2456, LR: 0.0005
+[2025-07-31 07:50:26,624] [INFO] Epoch 19/50, ValAcc: 25.50%, TrainLoss: 3.0207, ValLoss: 3.2573, LR: 0.00025
+[2025-07-31 07:51:18,939] [INFO] Epoch 20/50, ValAcc: 25.28%, TrainLoss: 3.0052, ValLoss: 3.2552, LR: 0.00025
+[2025-07-31 07:52:11,259] [INFO] Epoch 21/50, ValAcc: 25.36%, TrainLoss: 2.9856, ValLoss: 3.2961, LR: 0.00025
+[2025-07-31 07:53:03,569] [INFO] Epoch 22/50, ValAcc: 25.62%, TrainLoss: 2.9619, ValLoss: 3.2879, LR: 0.000125
+[2025-07-31 07:53:55,866] [INFO] Epoch 23/50, ValAcc: 25.41%, TrainLoss: 2.9473, ValLoss: 3.2979, LR: 0.000125
+[2025-07-31 07:54:48,162] [INFO] Epoch 24/50, ValAcc: 25.44%, TrainLoss: 2.9392, ValLoss: 3.3233, LR: 0.000125
+[2025-07-31 07:55:40,456] [INFO] Epoch 25/50, ValAcc: 25.51%, TrainLoss: 2.9236, ValLoss: 3.3362, LR: 6.25e-05
+[2025-07-31 07:55:40,457] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 07:55:48,292] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_700'),0.2480,0.2890,0.4136,0.2493
+[2025-07-31 07:55:48,298] [INFO] [(0.24800284040475767, 0.28898165191238145, 0.4136189585108703, 0.24929556232114544)]
+[2025-07-31 07:55:48,299] [INFO] Training from 800 to 1300 / 3000
+[2025-07-31 07:56:37,025] [INFO] Feature 0 normalized using token
+[2025-07-31 07:56:37,025] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 07:56:37,053] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 07:56:37,053] [INFO] Training...
+[2025-07-31 07:57:29,209] [INFO] Epoch 1/50, ValAcc: 7.14%, TrainLoss: 4.3456, ValLoss: 4.1747, LR: 0.001
+[2025-07-31 07:58:21,507] [INFO] Epoch 2/50, ValAcc: 9.43%, TrainLoss: 4.1355, ValLoss: 4.0647, LR: 0.001
+[2025-07-31 07:59:13,850] [INFO] Epoch 3/50, ValAcc: 11.18%, TrainLoss: 4.0444, ValLoss: 3.9881, LR: 0.001
+[2025-07-31 08:00:06,175] [INFO] Epoch 4/50, ValAcc: 12.71%, TrainLoss: 3.9608, ValLoss: 3.9020, LR: 0.001
+[2025-07-31 08:00:58,519] [INFO] Epoch 5/50, ValAcc: 13.08%, TrainLoss: 3.9031, ValLoss: 3.8843, LR: 0.001
+[2025-07-31 08:01:50,960] [INFO] Epoch 6/50, ValAcc: 14.22%, TrainLoss: 3.8689, ValLoss: 3.8486, LR: 0.001
+[2025-07-31 08:02:43,321] [INFO] Epoch 7/50, ValAcc: 14.46%, TrainLoss: 3.8443, ValLoss: 3.8289, LR: 0.001
+[2025-07-31 08:03:35,722] [INFO] Epoch 8/50, ValAcc: 14.88%, TrainLoss: 3.8184, ValLoss: 3.8146, LR: 0.001
+[2025-07-31 08:04:28,117] [INFO] Epoch 9/50, ValAcc: 15.55%, TrainLoss: 3.7923, ValLoss: 3.8029, LR: 0.001
+[2025-07-31 08:05:20,501] [INFO] Epoch 10/50, ValAcc: 16.01%, TrainLoss: 3.7767, ValLoss: 3.7727, LR: 0.001
+[2025-07-31 08:06:12,883] [INFO] Epoch 11/50, ValAcc: 16.04%, TrainLoss: 3.7542, ValLoss: 3.7584, LR: 0.001
+[2025-07-31 08:07:05,277] [INFO] Epoch 12/50, ValAcc: 16.41%, TrainLoss: 3.7312, ValLoss: 3.7453, LR: 0.001
+[2025-07-31 08:07:57,679] [INFO] Epoch 13/50, ValAcc: 17.14%, TrainLoss: 3.7071, ValLoss: 3.7351, LR: 0.001
+[2025-07-31 08:08:50,066] [INFO] Epoch 14/50, ValAcc: 17.63%, TrainLoss: 3.6810, ValLoss: 3.7047, LR: 0.001
+[2025-07-31 08:09:42,480] [INFO] Epoch 15/50, ValAcc: 17.60%, TrainLoss: 3.6689, ValLoss: 3.6857, LR: 0.001
+[2025-07-31 08:10:34,869] [INFO] Epoch 16/50, ValAcc: 17.41%, TrainLoss: 3.6603, ValLoss: 3.7208, LR: 0.001
+[2025-07-31 08:11:27,278] [INFO] Epoch 17/50, ValAcc: 18.13%, TrainLoss: 3.6486, ValLoss: 3.6695, LR: 0.001
+[2025-07-31 08:12:19,684] [INFO] Epoch 18/50, ValAcc: 18.13%, TrainLoss: 3.6357, ValLoss: 3.7132, LR: 0.001
+[2025-07-31 08:13:12,058] [INFO] Epoch 19/50, ValAcc: 18.51%, TrainLoss: 3.6338, ValLoss: 3.6632, LR: 0.001
+[2025-07-31 08:14:04,340] [INFO] Epoch 20/50, ValAcc: 18.33%, TrainLoss: 3.6209, ValLoss: 3.6724, LR: 0.001
+[2025-07-31 08:14:56,665] [INFO] Epoch 21/50, ValAcc: 18.53%, TrainLoss: 3.6202, ValLoss: 3.6990, LR: 0.001
+[2025-07-31 08:15:48,991] [INFO] Epoch 22/50, ValAcc: 18.53%, TrainLoss: 3.6215, ValLoss: 3.6567, LR: 0.001
+[2025-07-31 08:16:41,327] [INFO] Epoch 23/50, ValAcc: 18.85%, TrainLoss: 3.6097, ValLoss: 3.6541, LR: 0.001
+[2025-07-31 08:17:33,651] [INFO] Epoch 24/50, ValAcc: 18.71%, TrainLoss: 3.6078, ValLoss: 3.6447, LR: 0.001
+[2025-07-31 08:18:25,988] [INFO] Epoch 25/50, ValAcc: 18.50%, TrainLoss: 3.6083, ValLoss: 3.6616, LR: 0.001
+[2025-07-31 08:19:18,324] [INFO] Epoch 26/50, ValAcc: 18.67%, TrainLoss: 3.6096, ValLoss: 3.6498, LR: 0.001
+[2025-07-31 08:20:10,645] [INFO] Epoch 27/50, ValAcc: 18.85%, TrainLoss: 3.6076, ValLoss: 3.6768, LR: 0.001
+[2025-07-31 08:21:02,946] [INFO] Epoch 28/50, ValAcc: 19.20%, TrainLoss: 3.5757, ValLoss: 3.6675, LR: 0.0005
+[2025-07-31 08:21:55,275] [INFO] Epoch 29/50, ValAcc: 19.03%, TrainLoss: 3.5581, ValLoss: 3.6657, LR: 0.0005
+[2025-07-31 08:22:47,584] [INFO] Epoch 30/50, ValAcc: 19.61%, TrainLoss: 3.5492, ValLoss: 3.6405, LR: 0.0005
+[2025-07-31 08:23:39,911] [INFO] Epoch 31/50, ValAcc: 19.73%, TrainLoss: 3.5305, ValLoss: 3.6343, LR: 0.0005
+[2025-07-31 08:24:32,218] [INFO] Epoch 32/50, ValAcc: 19.75%, TrainLoss: 3.5178, ValLoss: 3.6366, LR: 0.0005
+[2025-07-31 08:25:24,510] [INFO] Epoch 33/50, ValAcc: 19.89%, TrainLoss: 3.5105, ValLoss: 3.6233, LR: 0.0005
+[2025-07-31 08:26:16,825] [INFO] Epoch 34/50, ValAcc: 19.94%, TrainLoss: 3.4993, ValLoss: 3.6226, LR: 0.0005
+[2025-07-31 08:27:09,155] [INFO] Epoch 35/50, ValAcc: 20.06%, TrainLoss: 3.4931, ValLoss: 3.6469, LR: 0.0005
+[2025-07-31 08:28:00,709] [INFO] Epoch 36/50, ValAcc: 20.11%, TrainLoss: 3.4846, ValLoss: 3.6160, LR: 0.0005
+[2025-07-31 08:28:53,680] [INFO] Epoch 37/50, ValAcc: 20.15%, TrainLoss: 3.4781, ValLoss: 3.6137, LR: 0.0005
+[2025-07-31 08:29:44,397] [INFO] Epoch 38/50, ValAcc: 20.25%, TrainLoss: 3.4734, ValLoss: 3.6013, LR: 0.0005
+[2025-07-31 08:30:37,026] [INFO] Epoch 39/50, ValAcc: 20.27%, TrainLoss: 3.4663, ValLoss: 3.6307, LR: 0.0005
+[2025-07-31 08:31:29,684] [INFO] Epoch 40/50, ValAcc: 20.57%, TrainLoss: 3.4581, ValLoss: 3.6341, LR: 0.0005
+[2025-07-31 08:32:22,327] [INFO] Epoch 41/50, ValAcc: 20.31%, TrainLoss: 3.4477, ValLoss: 3.6363, LR: 0.0005
+[2025-07-31 08:33:14,977] [INFO] Epoch 42/50, ValAcc: 20.76%, TrainLoss: 3.4285, ValLoss: 3.6128, LR: 0.00025
+[2025-07-31 08:34:07,623] [INFO] Epoch 43/50, ValAcc: 20.63%, TrainLoss: 3.4140, ValLoss: 3.6107, LR: 0.00025
+[2025-07-31 08:35:00,267] [INFO] Epoch 44/50, ValAcc: 20.62%, TrainLoss: 3.4073, ValLoss: 3.6337, LR: 0.00025
+[2025-07-31 08:35:52,891] [INFO] Epoch 45/50, ValAcc: 20.50%, TrainLoss: 3.3938, ValLoss: 3.6281, LR: 0.000125
+[2025-07-31 08:36:45,557] [INFO] Epoch 46/50, ValAcc: 20.95%, TrainLoss: 3.3931, ValLoss: 3.6177, LR: 0.000125
+[2025-07-31 08:37:38,288] [INFO] Epoch 47/50, ValAcc: 20.93%, TrainLoss: 3.3840, ValLoss: 3.6154, LR: 0.000125
+[2025-07-31 08:38:31,000] [INFO] Epoch 48/50, ValAcc: 20.98%, TrainLoss: 3.3748, ValLoss: 3.6301, LR: 6.25e-05
+[2025-07-31 08:38:31,000] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 08:38:38,839] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_800'),0.2037,0.2586,0.5340,0.2056
+[2025-07-31 08:38:38,846] [INFO] [(0.2036806911651577, 0.2585880528015281, 0.5340378845014581, 0.20561501887673897)]
+[2025-07-31 08:38:38,846] [INFO] Training from 900 to 1400 / 3000
+[2025-07-31 08:39:26,179] [INFO] Feature 0 normalized using token
+[2025-07-31 08:39:26,180] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 08:39:26,209] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 08:39:26,209] [INFO] Training...
+[2025-07-31 08:40:18,714] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5131, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 08:41:11,485] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 08:42:04,259] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 08:42:57,008] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 08:43:49,821] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 08:44:42,617] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 08:44:42,617] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 08:44:45,234] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 08:44:45,234] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 08:45:37,979] [INFO] Epoch 1/50, ValAcc: 1.01%, TrainLoss: 4.5136, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 08:46:30,713] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 08:47:23,477] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 08:48:16,172] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 08:49:08,890] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 08:50:01,632] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 08:50:01,632] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 08:50:04,258] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 08:50:04,258] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 08:50:56,561] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5133, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 08:51:48,870] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 08:52:41,202] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 08:53:33,550] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 08:54:25,888] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 08:55:18,224] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 08:55:18,224] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 08:55:20,842] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 08:55:20,843] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 08:56:13,233] [INFO] Epoch 1/50, ValAcc: 0.91%, TrainLoss: 4.5135, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 08:57:05,643] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 08:57:58,058] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 08:58:50,461] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 08:59:42,862] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 09:00:35,272] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:00:35,272] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 09:00:37,890] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 09:00:37,890] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 09:01:30,242] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5138, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 09:02:22,559] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:03:14,865] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 09:04:07,218] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:04:59,654] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:05:52,060] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:05:52,060] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 09:05:54,692] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 09:05:54,692] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 09:06:47,097] [INFO] Epoch 1/50, ValAcc: 6.13%, TrainLoss: 4.4109, ValLoss: 4.2079, LR: 0.001
+[2025-07-31 09:07:39,508] [INFO] Epoch 2/50, ValAcc: 9.68%, TrainLoss: 4.1115, ValLoss: 4.0272, LR: 0.001
+[2025-07-31 09:08:31,887] [INFO] Epoch 3/50, ValAcc: 12.99%, TrainLoss: 3.9676, ValLoss: 3.8849, LR: 0.001
+[2025-07-31 09:09:24,273] [INFO] Epoch 4/50, ValAcc: 14.34%, TrainLoss: 3.8142, ValLoss: 3.7344, LR: 0.001
+[2025-07-31 09:10:16,641] [INFO] Epoch 5/50, ValAcc: 15.55%, TrainLoss: 3.7211, ValLoss: 3.6508, LR: 0.001
+[2025-07-31 09:11:09,054] [INFO] Epoch 6/50, ValAcc: 16.13%, TrainLoss: 3.6589, ValLoss: 3.6466, LR: 0.001
+[2025-07-31 09:12:01,454] [INFO] Epoch 7/50, ValAcc: 16.49%, TrainLoss: 3.6256, ValLoss: 3.6054, LR: 0.001
+[2025-07-31 09:12:53,879] [INFO] Epoch 8/50, ValAcc: 16.60%, TrainLoss: 3.5951, ValLoss: 3.6153, LR: 0.001
+[2025-07-31 09:13:46,255] [INFO] Epoch 9/50, ValAcc: 16.99%, TrainLoss: 3.5816, ValLoss: 3.5903, LR: 0.001
+[2025-07-31 09:14:38,666] [INFO] Epoch 10/50, ValAcc: 17.91%, TrainLoss: 3.5670, ValLoss: 3.5742, LR: 0.001
+[2025-07-31 09:15:31,053] [INFO] Epoch 11/50, ValAcc: 17.35%, TrainLoss: 3.5514, ValLoss: 3.5660, LR: 0.001
+[2025-07-31 09:16:23,455] [INFO] Epoch 12/50, ValAcc: 17.49%, TrainLoss: 3.5497, ValLoss: 3.5575, LR: 0.001
+[2025-07-31 09:17:15,817] [INFO] Epoch 13/50, ValAcc: 17.88%, TrainLoss: 3.5274, ValLoss: 3.5942, LR: 0.001
+[2025-07-31 09:18:08,205] [INFO] Epoch 14/50, ValAcc: 17.86%, TrainLoss: 3.5252, ValLoss: 3.5615, LR: 0.001
+[2025-07-31 09:19:00,584] [INFO] Epoch 15/50, ValAcc: 18.07%, TrainLoss: 3.5169, ValLoss: 3.5579, LR: 0.001
+[2025-07-31 09:19:52,069] [INFO] Epoch 16/50, ValAcc: 18.58%, TrainLoss: 3.4721, ValLoss: 3.5368, LR: 0.0005
+[2025-07-31 09:20:44,533] [INFO] Epoch 17/50, ValAcc: 18.66%, TrainLoss: 3.4465, ValLoss: 3.5474, LR: 0.0005
+[2025-07-31 09:21:35,341] [INFO] Epoch 18/50, ValAcc: 18.77%, TrainLoss: 3.4320, ValLoss: 3.5328, LR: 0.0005
+[2025-07-31 09:22:27,691] [INFO] Epoch 19/50, ValAcc: 18.98%, TrainLoss: 3.4219, ValLoss: 3.5393, LR: 0.0005
+[2025-07-31 09:23:20,062] [INFO] Epoch 20/50, ValAcc: 18.58%, TrainLoss: 3.4051, ValLoss: 3.5506, LR: 0.0005
+[2025-07-31 09:24:12,420] [INFO] Epoch 21/50, ValAcc: 18.93%, TrainLoss: 3.3974, ValLoss: 3.5730, LR: 0.0005
+[2025-07-31 09:25:04,801] [INFO] Epoch 22/50, ValAcc: 18.76%, TrainLoss: 3.3687, ValLoss: 3.5520, LR: 0.00025
+[2025-07-31 09:25:57,177] [INFO] Epoch 23/50, ValAcc: 18.93%, TrainLoss: 3.3502, ValLoss: 3.5490, LR: 0.00025
+[2025-07-31 09:26:49,578] [INFO] Epoch 24/50, ValAcc: 19.27%, TrainLoss: 3.3377, ValLoss: 3.5446, LR: 0.00025
+[2025-07-31 09:27:41,951] [INFO] Epoch 25/50, ValAcc: 19.53%, TrainLoss: 3.3169, ValLoss: 3.5716, LR: 0.000125
+[2025-07-31 09:28:34,339] [INFO] Epoch 26/50, ValAcc: 19.50%, TrainLoss: 3.3108, ValLoss: 3.5615, LR: 0.000125
+[2025-07-31 09:29:26,745] [INFO] Epoch 27/50, ValAcc: 19.27%, TrainLoss: 3.3026, ValLoss: 3.5661, LR: 0.000125
+[2025-07-31 09:30:19,148] [INFO] Epoch 28/50, ValAcc: 19.34%, TrainLoss: 3.2882, ValLoss: 3.5725, LR: 6.25e-05
+[2025-07-31 09:30:19,148] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 09:30:24,398] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_900'),0.1920,0.2298,0.4087,0.1938
+[2025-07-31 09:30:24,405] [INFO] [(0.19202319663885437, 0.2297635984032173, 0.4086783968080331, 0.19379483241343395)]
+[2025-07-31 09:30:24,405] [INFO] Training from 1000 to 1500 / 3000
+[2025-07-31 09:31:10,786] [INFO] Feature 0 normalized using token
+[2025-07-31 09:31:10,786] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 09:31:10,814] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 09:31:10,814] [INFO] Training...
+[2025-07-31 09:32:03,163] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5137, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 09:32:55,612] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5123, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 09:33:48,159] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 09:34:40,653] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 09:35:33,181] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:36:25,708] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:36:25,708] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 09:36:28,345] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 09:36:28,345] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 09:37:20,714] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5139, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 09:38:13,137] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 09:39:05,524] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:39:57,950] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 09:40:50,364] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 09:41:42,717] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 09:41:42,717] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 09:41:45,333] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 09:41:45,333] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 09:42:37,663] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5136, ValLoss: 4.5114, LR: 0.001
+[2025-07-31 09:43:29,993] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 09:44:22,340] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:45:14,657] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 09:46:06,985] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:46:59,315] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 09:46:59,315] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 09:47:01,933] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 09:47:01,933] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 09:47:54,384] [INFO] Epoch 1/50, ValAcc: 0.95%, TrainLoss: 4.5132, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 09:48:47,117] [INFO] Epoch 2/50, ValAcc: 0.91%, TrainLoss: 4.5111, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 09:49:39,822] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:50:32,293] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:51:24,889] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:52:17,672] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:52:17,672] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 09:52:20,298] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 09:52:20,298] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 09:53:12,977] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5139, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 09:54:05,656] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:54:58,374] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5114, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 09:55:51,105] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 09:56:43,819] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 09:57:36,560] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 09:57:36,560] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 09:57:39,181] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 09:57:39,181] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 09:58:31,881] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5132, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 09:59:24,597] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5116, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 10:00:17,282] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:01:10,020] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:02:02,736] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 10:02:54,711] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:02:54,711] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 10:02:59,930] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1000'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 10:02:59,937] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 10:02:59,938] [INFO] Training from 1100 to 1600 / 3000
+[2025-07-31 10:03:47,537] [INFO] Feature 0 normalized using token
+[2025-07-31 10:03:47,538] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 10:03:47,567] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 10:03:47,567] [INFO] Training...
+[2025-07-31 10:04:38,517] [INFO] Epoch 1/50, ValAcc: 1.12%, TrainLoss: 4.5138, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 10:05:31,246] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 10:06:23,996] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:07:16,710] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 10:08:09,451] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:09:01,942] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:09:01,942] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 10:09:04,563] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 10:09:04,563] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 10:09:56,957] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5137, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 10:10:49,372] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5117, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 10:11:41,757] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 10:12:34,164] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 10:13:26,595] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 10:14:19,020] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 10:14:19,020] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 10:14:21,635] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 10:14:21,636] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 10:15:13,965] [INFO] Epoch 1/50, ValAcc: 1.14%, TrainLoss: 4.5138, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 10:16:06,381] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 10:16:58,857] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 10:17:51,348] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:18:43,815] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:19:36,266] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:19:36,267] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 10:19:38,885] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 10:19:38,885] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 10:20:31,324] [INFO] Epoch 1/50, ValAcc: 1.15%, TrainLoss: 4.5130, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 10:21:23,794] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 10:22:16,227] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:23:08,801] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:24:01,574] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 10:24:54,352] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 10:24:54,352] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 10:24:57,011] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 10:24:57,011] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 10:25:49,837] [INFO] Epoch 1/50, ValAcc: 1.27%, TrainLoss: 4.5131, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 10:26:42,616] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 10:27:35,401] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 10:28:28,156] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:29:20,928] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:30:13,697] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 10:30:13,697] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 10:30:16,349] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 10:30:16,349] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 10:31:09,055] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5131, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 10:32:01,747] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5119, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 10:32:54,452] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 10:33:47,128] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5112, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 10:34:39,820] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:35:32,496] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 10:35:32,496] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 10:35:37,772] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1100'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 10:35:37,779] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 10:35:37,779] [INFO] Training from 1200 to 1700 / 3000
+[2025-07-31 10:36:23,453] [INFO] Feature 0 normalized using token
+[2025-07-31 10:36:23,453] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 10:36:23,481] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 10:36:23,481] [INFO] Training...
+[2025-07-31 10:37:15,582] [INFO] Epoch 1/50, ValAcc: 3.25%, TrainLoss: 4.4684, ValLoss: 4.4021, LR: 0.001
+[2025-07-31 10:38:08,223] [INFO] Epoch 2/50, ValAcc: 4.75%, TrainLoss: 4.3580, ValLoss: 4.2965, LR: 0.001
+[2025-07-31 10:39:00,866] [INFO] Epoch 3/50, ValAcc: 5.25%, TrainLoss: 4.2782, ValLoss: 4.2563, LR: 0.001
+[2025-07-31 10:39:53,514] [INFO] Epoch 4/50, ValAcc: 6.44%, TrainLoss: 4.2384, ValLoss: 4.2213, LR: 0.001
+[2025-07-31 10:40:46,188] [INFO] Epoch 5/50, ValAcc: 7.38%, TrainLoss: 4.2008, ValLoss: 4.1899, LR: 0.001
+[2025-07-31 10:41:38,787] [INFO] Epoch 6/50, ValAcc: 7.60%, TrainLoss: 4.1497, ValLoss: 4.1430, LR: 0.001
+[2025-07-31 10:42:31,452] [INFO] Epoch 7/50, ValAcc: 8.32%, TrainLoss: 4.1257, ValLoss: 4.1271, LR: 0.001
+[2025-07-31 10:43:24,103] [INFO] Epoch 8/50, ValAcc: 9.24%, TrainLoss: 4.1015, ValLoss: 4.1025, LR: 0.001
+[2025-07-31 10:44:16,813] [INFO] Epoch 9/50, ValAcc: 9.48%, TrainLoss: 4.0857, ValLoss: 4.0950, LR: 0.001
+[2025-07-31 10:45:09,739] [INFO] Epoch 10/50, ValAcc: 9.02%, TrainLoss: 4.0715, ValLoss: 4.0946, LR: 0.001
+[2025-07-31 10:46:02,616] [INFO] Epoch 11/50, ValAcc: 9.93%, TrainLoss: 4.0611, ValLoss: 4.0800, LR: 0.001
+[2025-07-31 10:46:55,531] [INFO] Epoch 12/50, ValAcc: 9.64%, TrainLoss: 4.0537, ValLoss: 4.0799, LR: 0.001
+[2025-07-31 10:47:48,405] [INFO] Epoch 13/50, ValAcc: 9.93%, TrainLoss: 4.0459, ValLoss: 4.0743, LR: 0.001
+[2025-07-31 10:48:41,325] [INFO] Epoch 14/50, ValAcc: 10.18%, TrainLoss: 4.0340, ValLoss: 4.0766, LR: 0.001
+[2025-07-31 10:49:34,213] [INFO] Epoch 15/50, ValAcc: 10.43%, TrainLoss: 4.0333, ValLoss: 4.0845, LR: 0.001
+[2025-07-31 10:50:27,134] [INFO] Epoch 16/50, ValAcc: 9.96%, TrainLoss: 4.0274, ValLoss: 4.0633, LR: 0.001
+[2025-07-31 10:51:20,038] [INFO] Epoch 17/50, ValAcc: 10.25%, TrainLoss: 4.0223, ValLoss: 4.0803, LR: 0.001
+[2025-07-31 10:52:12,922] [INFO] Epoch 18/50, ValAcc: 10.47%, TrainLoss: 4.0156, ValLoss: 4.0807, LR: 0.001
+[2025-07-31 10:53:05,823] [INFO] Epoch 19/50, ValAcc: 10.46%, TrainLoss: 4.0134, ValLoss: 4.0626, LR: 0.001
+[2025-07-31 10:53:58,721] [INFO] Epoch 20/50, ValAcc: 10.45%, TrainLoss: 4.0141, ValLoss: 4.0735, LR: 0.001
+[2025-07-31 10:54:51,595] [INFO] Epoch 21/50, ValAcc: 10.63%, TrainLoss: 4.0084, ValLoss: 4.0812, LR: 0.001
+[2025-07-31 10:55:44,426] [INFO] Epoch 22/50, ValAcc: 10.43%, TrainLoss: 4.0103, ValLoss: 4.0663, LR: 0.001
+[2025-07-31 10:56:37,100] [INFO] Epoch 23/50, ValAcc: 11.14%, TrainLoss: 3.9830, ValLoss: 4.0474, LR: 0.0005
+[2025-07-31 10:57:30,041] [INFO] Epoch 24/50, ValAcc: 11.09%, TrainLoss: 3.9623, ValLoss: 4.0598, LR: 0.0005
+[2025-07-31 10:58:22,925] [INFO] Epoch 25/50, ValAcc: 11.63%, TrainLoss: 3.9537, ValLoss: 4.0791, LR: 0.0005
+[2025-07-31 10:59:15,829] [INFO] Epoch 26/50, ValAcc: 11.55%, TrainLoss: 3.9409, ValLoss: 4.0826, LR: 0.0005
+[2025-07-31 11:00:08,730] [INFO] Epoch 27/50, ValAcc: 11.87%, TrainLoss: 3.9270, ValLoss: 4.0503, LR: 0.00025
+[2025-07-31 11:01:01,642] [INFO] Epoch 28/50, ValAcc: 12.00%, TrainLoss: 3.9187, ValLoss: 4.0399, LR: 0.00025
+[2025-07-31 11:01:54,534] [INFO] Epoch 29/50, ValAcc: 12.26%, TrainLoss: 3.9118, ValLoss: 4.0443, LR: 0.00025
+[2025-07-31 11:02:45,733] [INFO] Epoch 30/50, ValAcc: 12.06%, TrainLoss: 3.9057, ValLoss: 4.0543, LR: 0.00025
+[2025-07-31 11:03:38,556] [INFO] Epoch 31/50, ValAcc: 12.33%, TrainLoss: 3.8987, ValLoss: 4.0549, LR: 0.00025
+[2025-07-31 11:04:29,853] [INFO] Epoch 32/50, ValAcc: 12.31%, TrainLoss: 3.8892, ValLoss: 4.0587, LR: 0.000125
+[2025-07-31 11:05:22,766] [INFO] Epoch 33/50, ValAcc: 12.37%, TrainLoss: 3.8860, ValLoss: 4.0597, LR: 0.000125
+[2025-07-31 11:06:15,701] [INFO] Epoch 34/50, ValAcc: 12.43%, TrainLoss: 3.8812, ValLoss: 4.0618, LR: 0.000125
+[2025-07-31 11:07:08,573] [INFO] Epoch 35/50, ValAcc: 12.39%, TrainLoss: 3.8756, ValLoss: 4.0608, LR: 6.25e-05
+[2025-07-31 11:07:08,573] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 11:07:16,518] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1200'),0.1227,0.1646,0.5108,0.1243
+[2025-07-31 11:07:16,524] [INFO] [(0.12266998047221729, 0.16459811526953083, 0.5107734609924799, 0.1243256391781993)]
+[2025-07-31 11:07:16,525] [INFO] Training from 1300 to 1800 / 3000
+[2025-07-31 11:08:02,103] [INFO] Feature 0 normalized using token
+[2025-07-31 11:08:02,103] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 11:08:02,133] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 11:08:02,133] [INFO] Training...
+[2025-07-31 11:08:54,763] [INFO] Epoch 1/50, ValAcc: 0.91%, TrainLoss: 4.5132, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 11:09:47,689] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5110, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 11:10:40,666] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:11:33,643] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:12:26,642] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:13:19,657] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:13:19,657] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:13:22,317] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:13:22,317] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 11:14:15,370] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5134, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 11:15:08,414] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 11:16:01,451] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:16:54,462] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:17:47,436] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 11:18:40,403] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:18:40,403] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:18:43,051] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:18:43,051] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 11:19:35,880] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5132, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 11:20:28,528] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:21:21,212] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:22:13,981] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:23:06,818] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:23:59,771] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:23:59,771] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:24:02,421] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:24:02,421] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 11:24:55,381] [INFO] Epoch 1/50, ValAcc: 0.91%, TrainLoss: 4.5138, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 11:25:48,319] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:26:41,274] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:27:34,194] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:28:27,121] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:29:19,878] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 11:29:19,878] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:29:22,505] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:29:22,505] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 11:30:15,333] [INFO] Epoch 1/50, ValAcc: 0.91%, TrainLoss: 4.5137, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 11:31:08,132] [INFO] Epoch 2/50, ValAcc: 0.91%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:32:00,883] [INFO] Epoch 3/50, ValAcc: 1.04%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:32:53,552] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:33:46,225] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 11:34:38,922] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 11:34:38,922] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:34:41,549] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:34:41,549] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 11:35:34,148] [INFO] Epoch 1/50, ValAcc: 0.91%, TrainLoss: 4.5137, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 11:36:26,737] [INFO] Epoch 2/50, ValAcc: 0.91%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:37:19,343] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:38:11,919] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:39:04,507] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 11:39:57,087] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 11:39:57,087] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:40:02,331] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1300'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 11:40:02,338] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 11:40:02,338] [INFO] Training from 1400 to 1900 / 3000
+[2025-07-31 11:40:46,887] [INFO] Feature 0 normalized using token
+[2025-07-31 11:40:46,888] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 11:40:46,917] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 11:40:46,917] [INFO] Training...
+[2025-07-31 11:41:39,063] [INFO] Epoch 1/50, ValAcc: 0.91%, TrainLoss: 4.5133, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:42:31,801] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:43:24,543] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:44:17,306] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:45:10,068] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 11:46:02,817] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:46:02,817] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:46:05,444] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:46:05,444] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 11:46:58,259] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5134, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 11:47:51,061] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:48:43,857] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 11:49:36,652] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 11:50:29,397] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 11:51:22,044] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:51:22,045] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:51:24,670] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:51:24,670] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 11:52:17,254] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5136, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 11:53:09,816] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:54:02,413] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:54:54,987] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 11:55:47,576] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:56:40,135] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 11:56:40,135] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 11:56:42,762] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 11:56:42,762] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 11:57:35,330] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5136, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 11:58:27,905] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 11:59:20,491] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 12:00:13,070] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 12:01:05,681] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:01:58,251] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:01:58,251] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:02:00,877] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 12:02:00,878] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 12:02:53,818] [INFO] Epoch 1/50, ValAcc: 1.03%, TrainLoss: 4.5134, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:03:46,797] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:04:39,796] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 12:05:32,778] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:06:25,810] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:07:18,791] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 12:07:18,791] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:07:21,442] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 12:07:21,442] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 12:08:14,415] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5129, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:09:07,360] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:10:00,310] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:10:53,261] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 12:11:46,198] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 12:12:39,154] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 12:12:39,154] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:12:44,444] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1400'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 12:12:44,451] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 12:12:44,451] [INFO] Training from 1500 to 2000 / 3000
+[2025-07-31 12:13:29,399] [INFO] Feature 0 normalized using token
+[2025-07-31 12:13:29,400] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 12:13:29,429] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 12:13:29,430] [INFO] Training...
+[2025-07-31 12:14:21,606] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5137, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 12:15:14,552] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 12:16:07,349] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:17:00,078] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:17:52,810] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:18:45,388] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:18:45,389] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:18:48,023] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 12:18:48,024] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 12:19:40,679] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5135, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 12:20:33,325] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5114, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:21:26,023] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:22:18,664] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 12:23:11,336] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:24:04,065] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:24:04,065] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:24:06,720] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 12:24:06,720] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 12:24:59,545] [INFO] Epoch 1/50, ValAcc: 1.12%, TrainLoss: 4.5136, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:25:52,322] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 12:26:45,142] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:27:37,925] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:28:30,731] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:29:23,511] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:29:23,511] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:29:26,166] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 12:29:26,166] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 12:30:19,006] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5140, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 12:31:11,823] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 12:32:04,667] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:32:55,935] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 12:33:48,782] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 12:34:40,353] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:34:40,353] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:34:43,009] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 12:34:43,009] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 12:35:35,813] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5135, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 12:36:28,590] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 12:37:21,375] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5115, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 12:38:14,039] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 12:39:06,677] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 12:39:59,324] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 12:39:59,324] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:40:01,950] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 12:40:01,950] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 12:40:54,617] [INFO] Epoch 1/50, ValAcc: 0.91%, TrainLoss: 4.5139, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:41:47,332] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:42:40,007] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 12:43:32,720] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 12:44:25,407] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:45:18,141] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 12:45:18,141] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 12:45:23,383] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1500'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 12:45:23,390] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 12:45:23,390] [INFO] Training from 1600 to 2100 / 3000
+[2025-07-31 12:46:05,995] [INFO] Feature 0 normalized using token
+[2025-07-31 12:46:05,995] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 12:46:06,022] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 12:46:06,022] [INFO] Training...
+[2025-07-31 12:46:58,337] [INFO] Epoch 1/50, ValAcc: 1.68%, TrainLoss: 4.4999, ValLoss: 4.4736, LR: 0.001
+[2025-07-31 12:47:50,939] [INFO] Epoch 2/50, ValAcc: 1.69%, TrainLoss: 4.4674, ValLoss: 4.4610, LR: 0.001
+[2025-07-31 12:48:43,532] [INFO] Epoch 3/50, ValAcc: 1.72%, TrainLoss: 4.4616, ValLoss: 4.4602, LR: 0.001
+[2025-07-31 12:49:36,146] [INFO] Epoch 4/50, ValAcc: 1.81%, TrainLoss: 4.4580, ValLoss: 4.4574, LR: 0.001
+[2025-07-31 12:50:28,747] [INFO] Epoch 5/50, ValAcc: 1.72%, TrainLoss: 4.4562, ValLoss: 4.4579, LR: 0.001
+[2025-07-31 12:51:21,378] [INFO] Epoch 6/50, ValAcc: 1.73%, TrainLoss: 4.4558, ValLoss: 4.4572, LR: 0.001
+[2025-07-31 12:52:13,998] [INFO] Epoch 7/50, ValAcc: 2.25%, TrainLoss: 4.4505, ValLoss: 4.4333, LR: 0.001
+[2025-07-31 12:53:06,568] [INFO] Epoch 8/50, ValAcc: 2.59%, TrainLoss: 4.4236, ValLoss: 4.4127, LR: 0.001
+[2025-07-31 12:53:59,112] [INFO] Epoch 9/50, ValAcc: 2.30%, TrainLoss: 4.4111, ValLoss: 4.4041, LR: 0.001
+[2025-07-31 12:54:51,701] [INFO] Epoch 10/50, ValAcc: 3.29%, TrainLoss: 4.3887, ValLoss: 4.3764, LR: 0.001
+[2025-07-31 12:55:44,524] [INFO] Epoch 11/50, ValAcc: 3.68%, TrainLoss: 4.3643, ValLoss: 4.3512, LR: 0.001
+[2025-07-31 12:56:37,322] [INFO] Epoch 12/50, ValAcc: 4.11%, TrainLoss: 4.3470, ValLoss: 4.3440, LR: 0.001
+[2025-07-31 12:57:30,163] [INFO] Epoch 13/50, ValAcc: 4.37%, TrainLoss: 4.3305, ValLoss: 4.3236, LR: 0.001
+[2025-07-31 12:58:22,955] [INFO] Epoch 14/50, ValAcc: 4.66%, TrainLoss: 4.3128, ValLoss: 4.3097, LR: 0.001
+[2025-07-31 12:59:15,773] [INFO] Epoch 15/50, ValAcc: 4.51%, TrainLoss: 4.3004, ValLoss: 4.3064, LR: 0.001
+[2025-07-31 13:00:08,544] [INFO] Epoch 16/50, ValAcc: 4.96%, TrainLoss: 4.2843, ValLoss: 4.3082, LR: 0.001
+[2025-07-31 13:01:01,392] [INFO] Epoch 17/50, ValAcc: 5.40%, TrainLoss: 4.2757, ValLoss: 4.2772, LR: 0.001
+[2025-07-31 13:01:54,199] [INFO] Epoch 18/50, ValAcc: 5.64%, TrainLoss: 4.2598, ValLoss: 4.2536, LR: 0.001
+[2025-07-31 13:02:47,032] [INFO] Epoch 19/50, ValAcc: 5.98%, TrainLoss: 4.2502, ValLoss: 4.2496, LR: 0.001
+[2025-07-31 13:03:40,361] [INFO] Epoch 20/50, ValAcc: 5.86%, TrainLoss: 4.2397, ValLoss: 4.2504, LR: 0.001
+[2025-07-31 13:04:33,143] [INFO] Epoch 21/50, ValAcc: 6.08%, TrainLoss: 4.2319, ValLoss: 4.2581, LR: 0.001
+[2025-07-31 13:05:25,773] [INFO] Epoch 22/50, ValAcc: 6.18%, TrainLoss: 4.2231, ValLoss: 4.2564, LR: 0.001
+[2025-07-31 13:06:18,422] [INFO] Epoch 23/50, ValAcc: 6.73%, TrainLoss: 4.1977, ValLoss: 4.2331, LR: 0.0005
+[2025-07-31 13:07:11,046] [INFO] Epoch 24/50, ValAcc: 6.82%, TrainLoss: 4.1840, ValLoss: 4.2153, LR: 0.0005
+[2025-07-31 13:08:03,722] [INFO] Epoch 25/50, ValAcc: 7.04%, TrainLoss: 4.1728, ValLoss: 4.2141, LR: 0.0005
+[2025-07-31 13:08:56,356] [INFO] Epoch 26/50, ValAcc: 6.95%, TrainLoss: 4.1684, ValLoss: 4.2237, LR: 0.0005
+[2025-07-31 13:09:48,982] [INFO] Epoch 27/50, ValAcc: 6.97%, TrainLoss: 4.1633, ValLoss: 4.2268, LR: 0.0005
+[2025-07-31 13:10:41,635] [INFO] Epoch 28/50, ValAcc: 7.17%, TrainLoss: 4.1575, ValLoss: 4.2165, LR: 0.0005
+[2025-07-31 13:11:34,316] [INFO] Epoch 29/50, ValAcc: 7.25%, TrainLoss: 4.1437, ValLoss: 4.2083, LR: 0.00025
+[2025-07-31 13:12:26,946] [INFO] Epoch 30/50, ValAcc: 7.24%, TrainLoss: 4.1371, ValLoss: 4.2260, LR: 0.00025
+[2025-07-31 13:13:19,599] [INFO] Epoch 31/50, ValAcc: 7.46%, TrainLoss: 4.1308, ValLoss: 4.2232, LR: 0.00025
+[2025-07-31 13:14:12,235] [INFO] Epoch 32/50, ValAcc: 7.55%, TrainLoss: 4.1273, ValLoss: 4.2465, LR: 0.00025
+[2025-07-31 13:15:04,882] [INFO] Epoch 33/50, ValAcc: 7.68%, TrainLoss: 4.1179, ValLoss: 4.2336, LR: 0.000125
+[2025-07-31 13:15:57,530] [INFO] Epoch 34/50, ValAcc: 7.59%, TrainLoss: 4.1146, ValLoss: 4.2515, LR: 0.000125
+[2025-07-31 13:16:50,195] [INFO] Epoch 35/50, ValAcc: 7.75%, TrainLoss: 4.1107, ValLoss: 4.2462, LR: 0.000125
+[2025-07-31 13:17:42,819] [INFO] Epoch 36/50, ValAcc: 7.75%, TrainLoss: 4.1067, ValLoss: 4.2603, LR: 6.25e-05
+[2025-07-31 13:17:42,820] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 13:17:50,700] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1600'),0.0782,0.0946,0.2436,0.0801
+[2025-07-31 13:17:50,707] [INFO] [(0.07817030593526245, 0.09459082828753737, 0.24364209959044114, 0.08007360367734961)]
+[2025-07-31 13:17:50,707] [INFO] Training from 1700 to 2200 / 3000
+[2025-07-31 13:18:33,975] [INFO] Feature 0 normalized using token
+[2025-07-31 13:18:33,976] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 13:18:34,005] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 13:18:34,006] [INFO] Training...
+[2025-07-31 13:19:26,430] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5129, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 13:20:19,156] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 13:21:11,910] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 13:22:04,680] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 13:22:57,471] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 13:23:50,216] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 13:23:50,217] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 13:23:52,867] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 13:23:52,867] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 13:24:45,601] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5134, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 13:25:38,304] [INFO] Epoch 2/50, ValAcc: 0.91%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 13:26:30,806] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5119, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 13:27:23,269] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 13:28:15,721] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 13:29:08,209] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 13:29:08,209] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 13:29:10,862] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 13:29:10,862] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 13:30:03,323] [INFO] Epoch 1/50, ValAcc: 0.95%, TrainLoss: 4.5134, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 13:30:55,770] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 13:31:48,376] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 13:32:41,032] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 13:33:33,622] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 13:34:26,103] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 13:34:26,104] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 13:34:28,750] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 13:34:28,751] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 13:35:21,335] [INFO] Epoch 1/50, ValAcc: 1.14%, TrainLoss: 4.5136, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 13:36:13,912] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5112, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 13:37:06,491] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 13:37:59,066] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 13:38:51,641] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 13:39:44,239] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 13:39:44,239] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 13:39:46,890] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 13:39:46,890] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 13:40:39,399] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5131, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 13:41:31,905] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 13:42:24,415] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 13:43:17,103] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 13:44:09,890] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 13:45:02,618] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 13:45:02,618] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 13:45:05,264] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 13:45:05,264] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 13:45:58,013] [INFO] Epoch 1/50, ValAcc: 1.63%, TrainLoss: 4.5086, ValLoss: 4.4996, LR: 0.001
+[2025-07-31 13:46:50,684] [INFO] Epoch 2/50, ValAcc: 3.07%, TrainLoss: 4.4840, ValLoss: 4.4383, LR: 0.001
+[2025-07-31 13:47:43,414] [INFO] Epoch 3/50, ValAcc: 3.64%, TrainLoss: 4.4192, ValLoss: 4.3774, LR: 0.001
+[2025-07-31 13:48:36,107] [INFO] Epoch 4/50, ValAcc: 4.39%, TrainLoss: 4.3458, ValLoss: 4.3308, LR: 0.001
+[2025-07-31 13:49:28,845] [INFO] Epoch 5/50, ValAcc: 4.79%, TrainLoss: 4.3119, ValLoss: 4.3102, LR: 0.001
+[2025-07-31 13:50:21,542] [INFO] Epoch 6/50, ValAcc: 5.08%, TrainLoss: 4.2930, ValLoss: 4.2818, LR: 0.001
+[2025-07-31 13:51:14,284] [INFO] Epoch 7/50, ValAcc: 5.88%, TrainLoss: 4.2552, ValLoss: 4.2461, LR: 0.001
+[2025-07-31 13:52:06,626] [INFO] Epoch 8/50, ValAcc: 6.25%, TrainLoss: 4.2372, ValLoss: 4.2368, LR: 0.001
+[2025-07-31 13:52:58,516] [INFO] Epoch 9/50, ValAcc: 6.64%, TrainLoss: 4.2045, ValLoss: 4.2191, LR: 0.001
+[2025-07-31 13:53:48,910] [INFO] Epoch 10/50, ValAcc: 6.89%, TrainLoss: 4.1907, ValLoss: 4.1942, LR: 0.001
+[2025-07-31 13:54:41,655] [INFO] Epoch 11/50, ValAcc: 6.62%, TrainLoss: 4.1797, ValLoss: 4.2158, LR: 0.001
+[2025-07-31 13:55:34,349] [INFO] Epoch 12/50, ValAcc: 7.03%, TrainLoss: 4.1752, ValLoss: 4.1984, LR: 0.001
+[2025-07-31 13:56:27,109] [INFO] Epoch 13/50, ValAcc: 7.17%, TrainLoss: 4.1659, ValLoss: 4.2130, LR: 0.001
+[2025-07-31 13:57:19,818] [INFO] Epoch 14/50, ValAcc: 8.11%, TrainLoss: 4.1356, ValLoss: 4.1509, LR: 0.0005
+[2025-07-31 13:58:12,540] [INFO] Epoch 15/50, ValAcc: 8.37%, TrainLoss: 4.1067, ValLoss: 4.1536, LR: 0.0005
+[2025-07-31 13:59:05,020] [INFO] Epoch 16/50, ValAcc: 8.47%, TrainLoss: 4.0894, ValLoss: 4.1515, LR: 0.0005
+[2025-07-31 13:59:57,737] [INFO] Epoch 17/50, ValAcc: 8.79%, TrainLoss: 4.0670, ValLoss: 4.1167, LR: 0.0005
+[2025-07-31 14:00:50,425] [INFO] Epoch 18/50, ValAcc: 8.93%, TrainLoss: 4.0459, ValLoss: 4.1111, LR: 0.0005
+[2025-07-31 14:01:43,032] [INFO] Epoch 19/50, ValAcc: 9.28%, TrainLoss: 4.0328, ValLoss: 4.1111, LR: 0.0005
+[2025-07-31 14:02:36,929] [INFO] Epoch 20/50, ValAcc: 9.15%, TrainLoss: 4.0002, ValLoss: 4.0206, LR: 0.0005
+[2025-07-31 14:03:29,412] [INFO] Epoch 21/50, ValAcc: 9.02%, TrainLoss: 3.9624, ValLoss: 4.0158, LR: 0.0005
+[2025-07-31 14:04:21,860] [INFO] Epoch 22/50, ValAcc: 9.40%, TrainLoss: 3.9506, ValLoss: 4.0129, LR: 0.0005
+[2025-07-31 14:05:14,367] [INFO] Epoch 23/50, ValAcc: 9.40%, TrainLoss: 3.9398, ValLoss: 4.0108, LR: 0.0005
+[2025-07-31 14:06:06,845] [INFO] Epoch 24/50, ValAcc: 9.60%, TrainLoss: 3.9324, ValLoss: 4.0183, LR: 0.0005
+[2025-07-31 14:06:59,330] [INFO] Epoch 25/50, ValAcc: 9.61%, TrainLoss: 3.9233, ValLoss: 3.9941, LR: 0.0005
+[2025-07-31 14:07:51,785] [INFO] Epoch 26/50, ValAcc: 9.69%, TrainLoss: 3.9113, ValLoss: 4.0279, LR: 0.0005
+[2025-07-31 14:08:44,320] [INFO] Epoch 27/50, ValAcc: 9.82%, TrainLoss: 3.9005, ValLoss: 3.9832, LR: 0.0005
+[2025-07-31 14:09:37,064] [INFO] Epoch 28/50, ValAcc: 9.92%, TrainLoss: 3.8862, ValLoss: 3.9801, LR: 0.0005
+[2025-07-31 14:10:29,917] [INFO] Epoch 29/50, ValAcc: 9.60%, TrainLoss: 3.8759, ValLoss: 3.9698, LR: 0.0005
+[2025-07-31 14:11:22,816] [INFO] Epoch 30/50, ValAcc: 10.01%, TrainLoss: 3.8658, ValLoss: 3.9946, LR: 0.0005
+[2025-07-31 14:12:15,681] [INFO] Epoch 31/50, ValAcc: 10.24%, TrainLoss: 3.8576, ValLoss: 3.9809, LR: 0.0005
+[2025-07-31 14:13:08,534] [INFO] Epoch 32/50, ValAcc: 10.39%, TrainLoss: 3.8511, ValLoss: 3.9806, LR: 0.0005
+[2025-07-31 14:14:01,343] [INFO] Epoch 33/50, ValAcc: 10.45%, TrainLoss: 3.8261, ValLoss: 3.9811, LR: 0.00025
+[2025-07-31 14:14:54,182] [INFO] Epoch 34/50, ValAcc: 10.39%, TrainLoss: 3.8122, ValLoss: 3.9943, LR: 0.00025
+[2025-07-31 14:15:46,975] [INFO] Epoch 35/50, ValAcc: 10.54%, TrainLoss: 3.8024, ValLoss: 3.9955, LR: 0.00025
+[2025-07-31 14:16:39,798] [INFO] Epoch 36/50, ValAcc: 10.59%, TrainLoss: 3.7825, ValLoss: 4.0218, LR: 0.000125
+[2025-07-31 14:17:32,596] [INFO] Epoch 37/50, ValAcc: 10.77%, TrainLoss: 3.7736, ValLoss: 3.9907, LR: 0.000125
+[2025-07-31 14:18:25,419] [INFO] Epoch 38/50, ValAcc: 10.69%, TrainLoss: 3.7659, ValLoss: 3.9933, LR: 0.000125
+[2025-07-31 14:19:18,220] [INFO] Epoch 39/50, ValAcc: 10.56%, TrainLoss: 3.7558, ValLoss: 4.0142, LR: 6.25e-05
+[2025-07-31 14:19:18,220] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 14:19:23,484] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1700'),0.1105,0.1268,0.2490,0.1122
+[2025-07-31 14:19:23,492] [INFO] [(0.11053908515296763, 0.12684269451333863, 0.24897461362842357, 0.11221445078196537)]
+[2025-07-31 14:19:23,492] [INFO] Training from 1800 to 2300 / 3000
+[2025-07-31 14:20:06,872] [INFO] Feature 0 normalized using token
+[2025-07-31 14:20:06,873] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 14:20:06,900] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 14:20:06,900] [INFO] Training...
+[2025-07-31 14:20:59,442] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5132, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 14:21:52,272] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 14:22:45,131] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 14:23:37,885] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5123, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 14:24:30,529] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 14:25:23,140] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 14:25:23,140] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 14:25:25,756] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 14:25:25,757] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 14:26:18,389] [INFO] Epoch 1/50, ValAcc: 1.07%, TrainLoss: 4.5130, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 14:27:11,166] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 14:28:04,039] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 14:28:56,852] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 14:29:49,712] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 14:30:42,507] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 14:30:42,507] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 14:30:45,147] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 14:30:45,147] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 14:31:38,020] [INFO] Epoch 1/50, ValAcc: 1.01%, TrainLoss: 4.5130, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 14:32:30,858] [INFO] Epoch 2/50, ValAcc: 1.07%, TrainLoss: 4.5110, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 14:33:23,719] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 14:34:16,545] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 14:35:09,445] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 14:36:02,357] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 14:36:02,357] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 14:36:04,996] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 14:36:04,996] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 14:36:57,881] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5132, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 14:37:50,789] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 14:38:43,753] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 14:39:36,573] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 14:40:29,492] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 14:41:22,447] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 14:41:22,447] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 14:41:25,104] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 14:41:25,104] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 14:42:18,125] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5135, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 14:43:11,081] [INFO] Epoch 2/50, ValAcc: 0.91%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 14:44:04,090] [INFO] Epoch 3/50, ValAcc: 1.04%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 14:44:57,059] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 14:45:50,078] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 14:46:42,960] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 14:46:42,960] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 14:46:45,593] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 14:46:45,593] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 14:47:38,372] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5129, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 14:48:31,104] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 14:49:23,893] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 14:50:16,629] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 14:51:09,434] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 14:52:02,176] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 14:52:02,176] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 14:52:07,419] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1800'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 14:52:07,426] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 14:52:07,427] [INFO] Training from 1900 to 2400 / 3000
+[2025-07-31 14:52:49,447] [INFO] Feature 0 normalized using token
+[2025-07-31 14:52:49,447] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 14:52:49,476] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 14:52:49,476] [INFO] Training...
+[2025-07-31 14:53:41,670] [INFO] Epoch 1/50, ValAcc: 1.72%, TrainLoss: 4.4981, ValLoss: 4.4874, LR: 0.001
+[2025-07-31 14:54:34,377] [INFO] Epoch 2/50, ValAcc: 1.63%, TrainLoss: 4.4741, ValLoss: 4.4738, LR: 0.001
+[2025-07-31 14:55:27,146] [INFO] Epoch 3/50, ValAcc: 1.59%, TrainLoss: 4.4666, ValLoss: 4.4741, LR: 0.001
+[2025-07-31 14:56:19,846] [INFO] Epoch 4/50, ValAcc: 1.69%, TrainLoss: 4.4626, ValLoss: 4.4989, LR: 0.001
+[2025-07-31 14:57:12,599] [INFO] Epoch 5/50, ValAcc: 1.74%, TrainLoss: 4.4623, ValLoss: 4.4668, LR: 0.001
+[2025-07-31 14:58:05,324] [INFO] Epoch 6/50, ValAcc: 1.79%, TrainLoss: 4.4622, ValLoss: 4.4673, LR: 0.001
+[2025-07-31 14:58:58,098] [INFO] Epoch 7/50, ValAcc: 1.81%, TrainLoss: 4.4608, ValLoss: 4.4677, LR: 0.001
+[2025-07-31 14:59:50,834] [INFO] Epoch 8/50, ValAcc: 1.81%, TrainLoss: 4.4589, ValLoss: 4.4652, LR: 0.001
+[2025-07-31 15:00:43,603] [INFO] Epoch 9/50, ValAcc: 1.64%, TrainLoss: 4.4580, ValLoss: 4.4679, LR: 0.001
+[2025-07-31 15:01:36,308] [INFO] Epoch 10/50, ValAcc: 1.83%, TrainLoss: 4.4585, ValLoss: 4.4695, LR: 0.001
+[2025-07-31 15:02:29,101] [INFO] Epoch 11/50, ValAcc: 1.80%, TrainLoss: 4.4578, ValLoss: 4.4661, LR: 0.001
+[2025-07-31 15:03:21,822] [INFO] Epoch 12/50, ValAcc: 1.91%, TrainLoss: 4.4541, ValLoss: 4.4650, LR: 0.0005
+[2025-07-31 15:04:14,615] [INFO] Epoch 13/50, ValAcc: 1.92%, TrainLoss: 4.4503, ValLoss: 4.4624, LR: 0.0005
+[2025-07-31 15:05:07,328] [INFO] Epoch 14/50, ValAcc: 1.91%, TrainLoss: 4.4503, ValLoss: 4.4629, LR: 0.0005
+[2025-07-31 15:06:00,086] [INFO] Epoch 15/50, ValAcc: 2.05%, TrainLoss: 4.4484, ValLoss: 4.4640, LR: 0.0005
+[2025-07-31 15:06:52,782] [INFO] Epoch 16/50, ValAcc: 1.95%, TrainLoss: 4.4467, ValLoss: 4.4648, LR: 0.0005
+[2025-07-31 15:07:45,570] [INFO] Epoch 17/50, ValAcc: 2.04%, TrainLoss: 4.4438, ValLoss: 4.4652, LR: 0.00025
+[2025-07-31 15:08:38,268] [INFO] Epoch 18/50, ValAcc: 2.07%, TrainLoss: 4.4418, ValLoss: 4.4662, LR: 0.00025
+[2025-07-31 15:09:31,040] [INFO] Epoch 19/50, ValAcc: 2.58%, TrainLoss: 4.4334, ValLoss: 4.4558, LR: 0.00025
+[2025-07-31 15:10:23,735] [INFO] Epoch 20/50, ValAcc: 2.57%, TrainLoss: 4.4256, ValLoss: 4.4521, LR: 0.00025
+[2025-07-31 15:11:14,420] [INFO] Epoch 21/50, ValAcc: 2.46%, TrainLoss: 4.4217, ValLoss: 4.4610, LR: 0.00025
+[2025-07-31 15:12:05,907] [INFO] Epoch 22/50, ValAcc: 3.22%, TrainLoss: 4.4097, ValLoss: 4.4223, LR: 0.00025
+[2025-07-31 15:12:58,471] [INFO] Epoch 23/50, ValAcc: 3.48%, TrainLoss: 4.3756, ValLoss: 4.4127, LR: 0.00025
+[2025-07-31 15:13:51,206] [INFO] Epoch 24/50, ValAcc: 3.74%, TrainLoss: 4.3575, ValLoss: 4.3980, LR: 0.00025
+[2025-07-31 15:14:43,994] [INFO] Epoch 25/50, ValAcc: 4.02%, TrainLoss: 4.3288, ValLoss: 4.3721, LR: 0.00025
+[2025-07-31 15:15:36,721] [INFO] Epoch 26/50, ValAcc: 4.30%, TrainLoss: 4.3051, ValLoss: 4.3561, LR: 0.00025
+[2025-07-31 15:16:29,499] [INFO] Epoch 27/50, ValAcc: 4.79%, TrainLoss: 4.2881, ValLoss: 4.3386, LR: 0.00025
+[2025-07-31 15:17:22,221] [INFO] Epoch 28/50, ValAcc: 4.63%, TrainLoss: 4.2722, ValLoss: 4.3413, LR: 0.00025
+[2025-07-31 15:18:14,997] [INFO] Epoch 29/50, ValAcc: 4.71%, TrainLoss: 4.2574, ValLoss: 4.3196, LR: 0.00025
+[2025-07-31 15:19:07,710] [INFO] Epoch 30/50, ValAcc: 4.79%, TrainLoss: 4.2453, ValLoss: 4.3235, LR: 0.00025
+[2025-07-31 15:20:00,500] [INFO] Epoch 31/50, ValAcc: 5.21%, TrainLoss: 4.2335, ValLoss: 4.3350, LR: 0.00025
+[2025-07-31 15:20:53,299] [INFO] Epoch 32/50, ValAcc: 5.42%, TrainLoss: 4.2222, ValLoss: 4.3329, LR: 0.00025
+[2025-07-31 15:21:46,122] [INFO] Epoch 33/50, ValAcc: 5.42%, TrainLoss: 4.2047, ValLoss: 4.3229, LR: 0.000125
+[2025-07-31 15:22:38,928] [INFO] Epoch 34/50, ValAcc: 5.34%, TrainLoss: 4.1950, ValLoss: 4.3357, LR: 0.000125
+[2025-07-31 15:23:31,719] [INFO] Epoch 35/50, ValAcc: 5.79%, TrainLoss: 4.1855, ValLoss: 4.3285, LR: 0.000125
+[2025-07-31 15:24:24,469] [INFO] Epoch 36/50, ValAcc: 5.67%, TrainLoss: 4.1717, ValLoss: 4.3268, LR: 6.25e-05
+[2025-07-31 15:24:24,469] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 15:24:32,349] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_1900'),0.0641,0.0657,0.1622,0.0648
+[2025-07-31 15:24:32,356] [INFO] [(0.06414580744422747, 0.06566129453395772, 0.16219270337256575, 0.06479979373883536)]
+[2025-07-31 15:24:32,356] [INFO] Training from 2000 to 2500 / 3000
+[2025-07-31 15:25:13,943] [INFO] Feature 0 normalized using token
+[2025-07-31 15:25:13,943] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 15:25:13,971] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 15:25:13,971] [INFO] Training...
+[2025-07-31 15:26:06,703] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5133, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 15:26:59,492] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 15:27:52,298] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 15:28:45,024] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 15:29:39,106] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 15:30:31,930] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 15:30:31,930] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 15:30:34,562] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 15:30:34,562] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 15:31:27,221] [INFO] Epoch 1/50, ValAcc: 1.88%, TrainLoss: 4.5100, ValLoss: 4.4978, LR: 0.001
+[2025-07-31 15:32:19,808] [INFO] Epoch 2/50, ValAcc: 4.33%, TrainLoss: 4.3991, ValLoss: 4.3505, LR: 0.001
+[2025-07-31 15:33:13,441] [INFO] Epoch 3/50, ValAcc: 4.79%, TrainLoss: 4.3407, ValLoss: 4.3123, LR: 0.001
+[2025-07-31 15:34:06,178] [INFO] Epoch 4/50, ValAcc: 5.53%, TrainLoss: 4.2973, ValLoss: 4.2488, LR: 0.001
+[2025-07-31 15:34:58,908] [INFO] Epoch 5/50, ValAcc: 6.02%, TrainLoss: 4.2387, ValLoss: 4.1833, LR: 0.001
+[2025-07-31 15:35:51,620] [INFO] Epoch 6/50, ValAcc: 6.76%, TrainLoss: 4.1614, ValLoss: 4.1210, LR: 0.001
+[2025-07-31 15:36:44,334] [INFO] Epoch 7/50, ValAcc: 7.38%, TrainLoss: 4.1166, ValLoss: 4.0770, LR: 0.001
+[2025-07-31 15:37:37,041] [INFO] Epoch 8/50, ValAcc: 7.47%, TrainLoss: 4.0778, ValLoss: 4.0631, LR: 0.001
+[2025-07-31 15:38:29,780] [INFO] Epoch 9/50, ValAcc: 7.57%, TrainLoss: 4.0459, ValLoss: 4.0434, LR: 0.001
+[2025-07-31 15:39:22,489] [INFO] Epoch 10/50, ValAcc: 7.48%, TrainLoss: 4.0306, ValLoss: 4.0474, LR: 0.001
+[2025-07-31 15:40:15,214] [INFO] Epoch 11/50, ValAcc: 7.53%, TrainLoss: 4.0185, ValLoss: 4.0557, LR: 0.001
+[2025-07-31 15:41:07,913] [INFO] Epoch 12/50, ValAcc: 8.45%, TrainLoss: 4.0041, ValLoss: 4.0218, LR: 0.001
+[2025-07-31 15:42:00,634] [INFO] Epoch 13/50, ValAcc: 8.36%, TrainLoss: 4.0006, ValLoss: 4.0188, LR: 0.001
+[2025-07-31 15:42:53,372] [INFO] Epoch 14/50, ValAcc: 8.52%, TrainLoss: 3.9855, ValLoss: 4.0291, LR: 0.001
+[2025-07-31 15:43:46,127] [INFO] Epoch 15/50, ValAcc: 8.57%, TrainLoss: 3.9780, ValLoss: 4.0108, LR: 0.001
+[2025-07-31 15:44:38,832] [INFO] Epoch 16/50, ValAcc: 8.45%, TrainLoss: 3.9689, ValLoss: 3.9924, LR: 0.001
+[2025-07-31 15:45:31,478] [INFO] Epoch 17/50, ValAcc: 9.01%, TrainLoss: 3.9571, ValLoss: 4.0437, LR: 0.001
+[2025-07-31 15:46:24,131] [INFO] Epoch 18/50, ValAcc: 8.76%, TrainLoss: 3.9473, ValLoss: 4.0296, LR: 0.001
+[2025-07-31 15:47:16,896] [INFO] Epoch 19/50, ValAcc: 8.97%, TrainLoss: 3.9434, ValLoss: 3.9962, LR: 0.001
+[2025-07-31 15:48:12,503] [INFO] Epoch 20/50, ValAcc: 9.11%, TrainLoss: 3.9085, ValLoss: 4.0184, LR: 0.0005
+[2025-07-31 15:49:05,323] [INFO] Epoch 21/50, ValAcc: 9.12%, TrainLoss: 3.8872, ValLoss: 4.0135, LR: 0.0005
+[2025-07-31 15:49:58,119] [INFO] Epoch 22/50, ValAcc: 9.43%, TrainLoss: 3.8777, ValLoss: 4.0067, LR: 0.0005
+[2025-07-31 15:50:50,849] [INFO] Epoch 23/50, ValAcc: 9.55%, TrainLoss: 3.8553, ValLoss: 3.9887, LR: 0.00025
+[2025-07-31 15:51:43,551] [INFO] Epoch 24/50, ValAcc: 9.91%, TrainLoss: 3.8397, ValLoss: 4.0069, LR: 0.00025
+[2025-07-31 15:52:36,271] [INFO] Epoch 25/50, ValAcc: 9.70%, TrainLoss: 3.8297, ValLoss: 4.0252, LR: 0.00025
+[2025-07-31 15:53:28,972] [INFO] Epoch 26/50, ValAcc: 9.80%, TrainLoss: 3.8247, ValLoss: 4.0584, LR: 0.00025
+[2025-07-31 15:54:21,699] [INFO] Epoch 27/50, ValAcc: 9.68%, TrainLoss: 3.8079, ValLoss: 4.0332, LR: 0.000125
+[2025-07-31 15:55:14,393] [INFO] Epoch 28/50, ValAcc: 9.69%, TrainLoss: 3.8018, ValLoss: 4.0667, LR: 0.000125
+[2025-07-31 15:56:07,129] [INFO] Epoch 29/50, ValAcc: 9.66%, TrainLoss: 3.7949, ValLoss: 4.0444, LR: 0.000125
+[2025-07-31 15:56:59,829] [INFO] Epoch 30/50, ValAcc: 9.69%, TrainLoss: 3.7874, ValLoss: 4.0587, LR: 6.25e-05
+[2025-07-31 15:56:59,829] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 15:57:07,722] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_2000'),0.0998,0.1145,0.2085,0.1012
+[2025-07-31 15:57:07,729] [INFO] [(0.09976921711343867, 0.11448294987170511, 0.20848047359812802, 0.10115269126091236)]
+[2025-07-31 15:57:07,729] [INFO] Training from 2100 to 2600 / 3000
+[2025-07-31 15:57:47,637] [INFO] Feature 0 normalized using token
+[2025-07-31 15:57:47,638] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 15:57:47,667] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 15:57:47,667] [INFO] Training...
+[2025-07-31 15:58:40,082] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5132, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 15:59:32,751] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5110, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:00:25,449] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:01:18,125] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 16:02:10,810] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:03:03,473] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:03:03,474] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:03:06,108] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:03:06,108] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 16:03:58,834] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5131, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:04:51,573] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 16:05:44,290] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:06:37,054] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 16:07:29,798] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 16:08:22,652] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 16:08:22,653] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:08:25,289] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:08:25,289] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 16:09:17,986] [INFO] Epoch 1/50, ValAcc: 1.21%, TrainLoss: 4.5132, ValLoss: 4.5112, LR: 0.001
+[2025-07-31 16:10:10,701] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 16:11:03,380] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:11:56,102] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 16:12:48,794] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 16:13:41,513] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 16:13:41,513] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:13:44,154] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:13:44,154] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 16:14:36,865] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5135, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 16:15:29,592] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:16:22,273] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 16:17:14,983] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 16:18:07,698] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:19:00,408] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:19:00,408] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:19:03,044] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:19:03,045] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 16:19:55,831] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5133, ValLoss: 4.5115, LR: 0.001
+[2025-07-31 16:20:48,598] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:21:41,384] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 16:22:34,185] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:23:26,963] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5121, LR: 0.0005
+[2025-07-31 16:24:19,753] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:24:19,754] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:24:22,389] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:24:22,389] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 16:25:15,111] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5135, ValLoss: 4.5114, LR: 0.001
+[2025-07-31 16:26:07,807] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 16:27:00,514] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 16:27:53,230] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 16:28:45,976] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:29:38,700] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:29:38,700] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:29:43,955] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_2100'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 16:29:43,962] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 16:29:43,962] [INFO] Training from 2200 to 2700 / 3000
+[2025-07-31 16:30:23,209] [INFO] Feature 0 normalized using token
+[2025-07-31 16:30:23,209] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 16:30:23,237] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 16:30:23,237] [INFO] Training...
+[2025-07-31 16:31:15,751] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5136, ValLoss: 4.5113, LR: 0.001
+[2025-07-31 16:32:06,100] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 16:32:58,822] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:33:51,544] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 16:34:44,268] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:35:36,979] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:35:36,979] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:35:39,623] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:35:39,623] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 16:36:32,368] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5138, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 16:37:25,122] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:38:18,008] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 16:39:10,915] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 16:40:04,072] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:40:57,272] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:40:57,273] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:40:59,932] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:40:59,932] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 16:41:53,103] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5137, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:42:46,235] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:43:39,411] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:44:32,559] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 16:45:25,727] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:46:18,574] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:46:18,574] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:46:21,217] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:46:21,217] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 16:47:14,076] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5132, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 16:48:06,934] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:48:59,774] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 16:49:52,590] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5124, LR: 0.001
+[2025-07-31 16:50:45,430] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 16:51:38,282] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 16:51:38,282] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:51:40,927] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:51:40,927] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 16:52:33,808] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5131, ValLoss: 4.5124, LR: 0.001
+[2025-07-31 16:53:26,698] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:54:19,599] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 16:55:12,511] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 16:56:05,425] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 16:56:58,322] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 16:56:58,322] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 16:57:00,966] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 16:57:00,966] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 16:57:53,794] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5137, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 16:58:46,635] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 16:59:39,452] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 17:00:32,129] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:01:24,817] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 17:02:17,517] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 17:02:17,517] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 17:02:22,778] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_2200'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 17:02:22,785] [INFO] [(0.010178117048346057, 0.00022144102748636752, 0.0001118474400917149, 0.01098901098901099)]
+[2025-07-31 17:02:22,785] [INFO] Training from 2300 to 2800 / 3000
+[2025-07-31 17:03:01,804] [INFO] Feature 0 normalized using token
+[2025-07-31 17:03:01,804] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 17:03:01,831] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 17:03:01,831] [INFO] Training...
+[2025-07-31 17:03:54,118] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5134, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 17:04:46,956] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 17:05:39,972] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:06:33,043] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 17:07:26,097] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 17:08:19,201] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 17:08:19,202] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 17:08:21,839] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 17:08:21,839] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 17:09:14,990] [INFO] Epoch 1/50, ValAcc: 1.11%, TrainLoss: 4.5138, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 17:10:08,169] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 17:11:01,176] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:11:53,839] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5124, LR: 0.001
+[2025-07-31 17:12:46,522] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5124, LR: 0.0005
+[2025-07-31 17:13:39,189] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5124, LR: 0.0005
+[2025-07-31 17:13:39,189] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 17:13:41,826] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 17:13:41,826] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 17:14:34,544] [INFO] Epoch 1/50, ValAcc: 0.99%, TrainLoss: 4.5134, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 17:15:27,273] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 17:16:20,026] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:17:12,764] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:18:05,770] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 17:18:58,382] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 17:18:58,383] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 17:19:01,064] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 17:19:01,064] [INFO] Retraining with new initialization: attempt 3...
+[2025-07-31 17:19:50,038] [INFO] Epoch 1/50, ValAcc: 1.04%, TrainLoss: 4.5121, ValLoss: 4.5113, LR: 0.001
+[2025-07-31 17:20:47,513] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5117, LR: 0.001
+[2025-07-31 17:22:29,845] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 17:24:30,952] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5121, LR: 0.001
+[2025-07-31 17:26:31,703] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 17:28:21,474] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 17:28:21,474] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 17:28:28,166] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 17:28:28,166] [INFO] Retraining with new initialization: attempt 4...
+[2025-07-31 17:30:29,341] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5135, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 17:32:30,266] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:34:24,171] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:36:20,201] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 17:38:21,385] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 17:40:22,419] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 17:40:22,419] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 17:40:29,218] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 17:40:29,218] [INFO] Retraining with new initialization: attempt 5...
+[2025-07-31 17:42:19,011] [INFO] Epoch 1/50, ValAcc: 1.14%, TrainLoss: 4.5112, ValLoss: 4.5189, LR: 0.001
+[2025-07-31 17:44:20,175] [INFO] Epoch 2/50, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5116, LR: 0.001
+[2025-07-31 17:46:21,083] [INFO] Epoch 3/50, ValAcc: 1.04%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 17:48:14,582] [INFO] Epoch 4/50, ValAcc: 1.04%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:50:10,901] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 17:52:11,970] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 17:52:11,971] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 17:52:24,809] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_2300'),0.0102,0.0002,0.0001,0.0110
+[2025-07-31 17:52:24,816] [INFO] [(0.010178117048346057, 0.00022145400001287525, 0.00011185405906674695, 0.01098901098901099)]
+[2025-07-31 17:52:24,816] [INFO] Training from 2400 to 2900 / 3000
+[2025-07-31 17:53:03,245] [INFO] Feature 0 normalized using token
+[2025-07-31 17:53:03,246] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 17:53:03,274] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 17:53:03,274] [INFO] Training...
+[2025-07-31 17:54:52,886] [INFO] Epoch 1/50, ValAcc: 1.53%, TrainLoss: 4.4978, ValLoss: 4.4891, LR: 0.001
+[2025-07-31 17:56:53,809] [INFO] Epoch 2/50, ValAcc: 2.40%, TrainLoss: 4.4751, ValLoss: 4.4677, LR: 0.001
+[2025-07-31 17:58:54,696] [INFO] Epoch 3/50, ValAcc: 3.24%, TrainLoss: 4.4227, ValLoss: 4.3973, LR: 0.001
+[2025-07-31 18:00:47,860] [INFO] Epoch 4/50, ValAcc: 3.59%, TrainLoss: 4.3773, ValLoss: 4.3585, LR: 0.001
+[2025-07-31 18:02:44,687] [INFO] Epoch 5/50, ValAcc: 4.36%, TrainLoss: 4.3397, ValLoss: 4.3178, LR: 0.001
+[2025-07-31 18:04:45,699] [INFO] Epoch 6/50, ValAcc: 4.40%, TrainLoss: 4.3182, ValLoss: 4.3138, LR: 0.001
+[2025-07-31 18:06:46,705] [INFO] Epoch 7/50, ValAcc: 4.27%, TrainLoss: 4.3053, ValLoss: 4.3515, LR: 0.001
+[2025-07-31 18:08:36,441] [INFO] Epoch 8/50, ValAcc: 4.08%, TrainLoss: 4.2949, ValLoss: 4.3807, LR: 0.001
+[2025-07-31 18:10:37,318] [INFO] Epoch 9/50, ValAcc: 4.93%, TrainLoss: 4.2929, ValLoss: 4.3551, LR: 0.001
+[2025-07-31 18:12:38,424] [INFO] Epoch 10/50, ValAcc: 5.05%, TrainLoss: 4.2726, ValLoss: 4.3673, LR: 0.0005
+[2025-07-31 18:14:39,373] [INFO] Epoch 11/50, ValAcc: 5.12%, TrainLoss: 4.2635, ValLoss: 4.3940, LR: 0.0005
+[2025-07-31 18:16:29,524] [INFO] Epoch 12/50, ValAcc: 5.28%, TrainLoss: 4.2545, ValLoss: 4.4430, LR: 0.0005
+[2025-07-31 18:18:30,563] [INFO] Epoch 13/50, ValAcc: 5.35%, TrainLoss: 4.2434, ValLoss: 4.4310, LR: 0.00025
+[2025-07-31 18:20:31,504] [INFO] Epoch 14/50, ValAcc: 5.41%, TrainLoss: 4.2334, ValLoss: 4.4499, LR: 0.00025
+[2025-07-31 18:22:21,887] [INFO] Epoch 15/50, ValAcc: 5.41%, TrainLoss: 4.2289, ValLoss: 4.4743, LR: 0.00025
+[2025-07-31 18:24:22,818] [INFO] Epoch 16/50, ValAcc: 5.66%, TrainLoss: 4.2150, ValLoss: 4.4579, LR: 0.000125
+[2025-07-31 18:26:23,844] [INFO] Epoch 17/50, ValAcc: 5.78%, TrainLoss: 4.2041, ValLoss: 4.4744, LR: 0.000125
+[2025-07-31 18:28:13,990] [INFO] Epoch 18/50, ValAcc: 5.88%, TrainLoss: 4.1978, ValLoss: 4.4593, LR: 0.000125
+[2025-07-31 18:30:14,966] [INFO] Epoch 19/50, ValAcc: 6.05%, TrainLoss: 4.1882, ValLoss: 4.4707, LR: 6.25e-05
+[2025-07-31 18:30:14,966] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 18:30:34,581] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_2400'),0.0611,0.0692,0.1250,0.0619
+[2025-07-31 18:30:34,588] [INFO] [(0.061127877389194625, 0.06924667282436436, 0.12499344336644713, 0.06185904230877014)]
+[2025-07-31 18:30:34,588] [INFO] Training from 2500 to 3000 / 3000
+[2025-07-31 18:31:13,391] [INFO] Feature 0 normalized using token
+[2025-07-31 18:31:13,391] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-31 18:31:13,421] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1385, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-31 18:31:13,421] [INFO] Training...
+[2025-07-31 18:33:14,434] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5133, ValLoss: 4.5118, LR: 0.001
+[2025-07-31 18:35:04,624] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 18:37:05,610] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 18:39:06,600] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5123, LR: 0.001
+[2025-07-31 18:40:56,941] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 18:42:57,956] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5123, LR: 0.0005
+[2025-07-31 18:42:57,956] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 18:43:04,699] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 18:43:04,699] [INFO] Retraining with new initialization: attempt 1...
+[2025-07-31 18:45:05,802] [INFO] Epoch 1/50, ValAcc: 0.98%, TrainLoss: 4.5132, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 18:47:03,629] [INFO] Epoch 2/50, ValAcc: 0.98%, TrainLoss: 4.5110, ValLoss: 4.5119, LR: 0.001
+[2025-07-31 18:48:56,309] [INFO] Epoch 3/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5120, LR: 0.001
+[2025-07-31 18:50:57,228] [INFO] Epoch 4/50, ValAcc: 0.98%, TrainLoss: 4.5109, ValLoss: 4.5122, LR: 0.001
+[2025-07-31 18:52:58,264] [INFO] Epoch 5/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 18:54:48,460] [INFO] Epoch 6/50, ValAcc: 0.98%, TrainLoss: 4.5106, ValLoss: 4.5122, LR: 0.0005
+[2025-07-31 18:54:48,461] [INFO] ValAcc too low 0.98%. Stopping early.
+[2025-07-31 18:54:55,272] [WARNING] ValAcc too low (0.98%), getting stuck in a bad local minimum...
+[2025-07-31 18:54:55,272] [INFO] Retraining with new initialization: attempt 2...
+[2025-07-31 18:56:56,394] [INFO] Epoch 1/50, ValAcc: 2.72%, TrainLoss: 4.4900, ValLoss: 4.4753, LR: 0.001
+[2025-07-31 18:58:57,474] [INFO] Epoch 2/50, ValAcc: 3.38%, TrainLoss: 4.4417, ValLoss: 4.4023, LR: 0.001
+[2025-07-31 19:00:48,033] [INFO] Epoch 3/50, ValAcc: 3.36%, TrainLoss: 4.3948, ValLoss: 4.3811, LR: 0.001
+[2025-07-31 19:02:49,113] [INFO] Epoch 4/50, ValAcc: 3.63%, TrainLoss: 4.3778, ValLoss: 4.3776, LR: 0.001
+[2025-07-31 19:04:50,076] [INFO] Epoch 5/50, ValAcc: 4.40%, TrainLoss: 4.3695, ValLoss: 4.3653, LR: 0.001
+[2025-07-31 19:06:51,105] [INFO] Epoch 6/50, ValAcc: 4.30%, TrainLoss: 4.3574, ValLoss: 4.3565, LR: 0.001
+[2025-07-31 19:08:41,967] [INFO] Epoch 7/50, ValAcc: 3.85%, TrainLoss: 4.3492, ValLoss: 4.3610, LR: 0.001
+[2025-07-31 19:10:42,908] [INFO] Epoch 8/50, ValAcc: 4.05%, TrainLoss: 4.3418, ValLoss: 4.3626, LR: 0.001
+[2025-07-31 19:12:43,996] [INFO] Epoch 9/50, ValAcc: 4.46%, TrainLoss: 4.3336, ValLoss: 4.3491, LR: 0.001
+[2025-07-31 19:14:34,597] [INFO] Epoch 10/50, ValAcc: 4.57%, TrainLoss: 4.3284, ValLoss: 4.3411, LR: 0.001
+[2025-07-31 19:16:35,751] [INFO] Epoch 11/50, ValAcc: 4.53%, TrainLoss: 4.3244, ValLoss: 4.3287, LR: 0.001
+[2025-07-31 19:18:36,753] [INFO] Epoch 12/50, ValAcc: 4.51%, TrainLoss: 4.3190, ValLoss: 4.3340, LR: 0.001
+[2025-07-31 19:20:28,782] [INFO] Epoch 13/50, ValAcc: 4.70%, TrainLoss: 4.3132, ValLoss: 4.3199, LR: 0.001
+[2025-07-31 19:22:27,735] [INFO] Epoch 14/50, ValAcc: 4.91%, TrainLoss: 4.3083, ValLoss: 4.3288, LR: 0.001
+[2025-07-31 19:24:28,631] [INFO] Epoch 15/50, ValAcc: 4.93%, TrainLoss: 4.3037, ValLoss: 4.3303, LR: 0.001
+[2025-07-31 19:26:29,566] [INFO] Epoch 16/50, ValAcc: 4.66%, TrainLoss: 4.3001, ValLoss: 4.3100, LR: 0.001
+[2025-07-31 19:28:20,233] [INFO] Epoch 17/50, ValAcc: 4.84%, TrainLoss: 4.3012, ValLoss: 4.3160, LR: 0.001
+[2025-07-31 19:30:21,284] [INFO] Epoch 18/50, ValAcc: 4.82%, TrainLoss: 4.2955, ValLoss: 4.3135, LR: 0.001
+[2025-07-31 19:32:22,113] [INFO] Epoch 19/50, ValAcc: 4.72%, TrainLoss: 4.2873, ValLoss: 4.2986, LR: 0.001
+[2025-07-31 19:34:12,530] [INFO] Epoch 20/50, ValAcc: 4.85%, TrainLoss: 4.2872, ValLoss: 4.3398, LR: 0.001
+[2025-07-31 19:36:13,492] [INFO] Epoch 21/50, ValAcc: 5.01%, TrainLoss: 4.2813, ValLoss: 4.3054, LR: 0.001
+[2025-07-31 19:38:14,601] [INFO] Epoch 22/50, ValAcc: 4.92%, TrainLoss: 4.2815, ValLoss: 4.3094, LR: 0.001
+[2025-07-31 19:40:15,581] [INFO] Epoch 23/50, ValAcc: 5.35%, TrainLoss: 4.2659, ValLoss: 4.3034, LR: 0.0005
+[2025-07-31 19:42:06,673] [INFO] Epoch 24/50, ValAcc: 5.08%, TrainLoss: 4.2585, ValLoss: 4.2922, LR: 0.0005
+[2025-07-31 19:44:07,665] [INFO] Epoch 25/50, ValAcc: 5.16%, TrainLoss: 4.2570, ValLoss: 4.3227, LR: 0.0005
+[2025-07-31 19:46:08,731] [INFO] Epoch 26/50, ValAcc: 5.43%, TrainLoss: 4.2509, ValLoss: 4.3034, LR: 0.0005
+[2025-07-31 19:47:59,642] [INFO] Epoch 27/50, ValAcc: 5.37%, TrainLoss: 4.2474, ValLoss: 4.2982, LR: 0.0005
+[2025-07-31 19:50:00,650] [INFO] Epoch 28/50, ValAcc: 5.55%, TrainLoss: 4.2411, ValLoss: 4.2966, LR: 0.00025
+[2025-07-31 19:52:01,673] [INFO] Epoch 29/50, ValAcc: 5.59%, TrainLoss: 4.2371, ValLoss: 4.2986, LR: 0.00025
+[2025-07-31 19:54:02,701] [INFO] Epoch 30/50, ValAcc: 5.61%, TrainLoss: 4.2331, ValLoss: 4.3146, LR: 0.00025
+[2025-07-31 19:55:53,847] [INFO] Epoch 31/50, ValAcc: 5.72%, TrainLoss: 4.2268, ValLoss: 4.2953, LR: 0.000125
+[2025-07-31 19:57:54,827] [INFO] Epoch 32/50, ValAcc: 5.74%, TrainLoss: 4.2252, ValLoss: 4.3004, LR: 0.000125
+[2025-07-31 19:59:55,849] [INFO] Epoch 33/50, ValAcc: 5.66%, TrainLoss: 4.2206, ValLoss: 4.2974, LR: 0.000125
+[2025-07-31 20:01:54,723] [INFO] Epoch 34/50, ValAcc: 5.70%, TrainLoss: 4.2194, ValLoss: 4.2994, LR: 6.25e-05
+[2025-07-31 20:01:54,723] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 20:02:04,767] [INFO] Namespace(path=['meta-free-apps/meta-ip_len/meta-ip_len.csv'], pktcount=3000, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=500, step_size=100, debug_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.debug', leaderboard_path='output/meta-free-apps/sliding_window_evaluation/sliding_window_evaluation_meta_1753937577.csv', step1=False, step2=False, step3=False, train=False, sliding_window_evaluation=True, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128_500_100_2500'),0.0560,0.0588,0.1606,0.0568
+[2025-07-31 20:02:04,774] [INFO] [(0.05597964376590331, 0.05881997186143622, 0.16063517734751495, 0.05680637387042553)]

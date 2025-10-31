@@ -1,0 +1,239 @@
+[2025-07-24 21:49:10,332] [INFO] Namespace(path=['meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_dport.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_dport.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='dport')
+[2025-07-24 21:53:32,000] [INFO] Processed data from meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv:
+[2025-07-24 21:53:32,001] [INFO] (84492, 500)
+[2025-07-24 21:53:32,001] [INFO] [['443' '41794' '443' ... '443' '443' '443']
+ ['443' '43074' '443' ... '443' '40458' '40458']
+ ['443' '47326' '443' ... '443' '47338' '47338']
+ ...
+ ['443' '55810' '443' ... '443' '443' '443']
+ ['443' '60006' '443' ... '443' '443' '43894']
+ ['443' '443' '443' ... '443' '443' '58350']]
+[2025-07-24 21:53:53,631] [INFO] Feature 0 normalized using robust
+[2025-07-24 21:53:53,631] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:53:53,668] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:53:53,668] [INFO] Training...
+[2025-07-24 21:54:18,078] [INFO] Epoch 1/5, ValAcc: 11.40%, TrainLoss: 4.0346, ValLoss: 3.4162, LR: 0.001
+[2025-07-24 21:54:31,000] [INFO] Epoch 2/5, ValAcc: 14.72%, TrainLoss: 3.2965, ValLoss: 3.0230, LR: 0.001
+[2025-07-24 21:54:54,196] [INFO] Epoch 3/5, ValAcc: 23.28%, TrainLoss: 3.0353, ValLoss: 2.7542, LR: 0.001
+[2025-07-24 21:55:17,884] [INFO] Epoch 4/5, ValAcc: 27.94%, TrainLoss: 2.7763, ValLoss: 2.5602, LR: 0.001
+[2025-07-24 21:55:36,323] [INFO] Epoch 5/5, ValAcc: 35.18%, TrainLoss: 2.5705, ValLoss: 2.3296, LR: 0.001
+[2025-07-24 21:55:37,697] [INFO] Namespace(path=['meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_dport.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_dport.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='dport', name='tcpdport_robust_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.3522,0.3376,0.4020,0.3533
+[2025-07-24 21:55:59,616] [INFO] Feature 0 normalized using robust
+[2025-07-24 21:55:59,617] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:55:59,643] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:55:59,643] [INFO] Training...
+[2025-07-24 21:56:28,715] [INFO] Epoch 1/5, ValAcc: 1.04%, TrainLoss: 4.5126, ValLoss: 4.5117, LR: 0.001
+[2025-07-24 21:56:54,100] [INFO] Epoch 2/5, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-24 21:57:19,467] [INFO] Epoch 3/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5125, LR: 0.001
+[2025-07-24 21:57:48,683] [INFO] Epoch 4/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-24 21:58:18,114] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5123, LR: 0.0005
+[2025-07-24 21:58:20,526] [INFO] Namespace(path=['meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv'], pktcount=500, importance=False, kfold=1, model=['bigru'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_dport.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_dport.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='dport', name='tcpdport_robust_bigru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 21:58:42,365] [INFO] Feature 0 normalized using robust
+[2025-07-24 21:58:42,365] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:58:42,388] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): LSTM(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:58:42,389] [INFO] Training...
+[2025-07-24 21:59:07,808] [INFO] Epoch 1/5, ValAcc: 0.92%, TrainLoss: 4.5123, ValLoss: 4.5138, LR: 0.001
+[2025-07-24 21:59:29,002] [INFO] Epoch 2/5, ValAcc: 1.80%, TrainLoss: 4.4987, ValLoss: 4.3142, LR: 0.001
+[2025-07-24 21:59:50,431] [INFO] Epoch 3/5, ValAcc: 9.17%, TrainLoss: 4.0067, ValLoss: 3.5951, LR: 0.001
+[2025-07-24 22:00:11,936] [INFO] Epoch 4/5, ValAcc: 13.46%, TrainLoss: 3.5441, ValLoss: 3.2677, LR: 0.001
+[2025-07-24 22:00:35,863] [INFO] Epoch 5/5, ValAcc: 17.36%, TrainLoss: 3.3186, ValLoss: 3.0731, LR: 0.001
+[2025-07-24 22:00:38,366] [INFO] Namespace(path=['meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv'], pktcount=500, importance=False, kfold=1, model=['lstm'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_dport.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_dport.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='dport', name='tcpdport_robust_lstm_500_32_5_0.001_128_128_3_0.3_128_128'),0.1668,0.1012,0.1018,0.1664
+[2025-07-24 22:01:00,159] [INFO] Feature 0 normalized using robust
+[2025-07-24 22:01:00,159] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 22:01:00,186] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): LSTM(128, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 22:01:00,186] [INFO] Training...
+[2025-07-24 22:01:43,277] [INFO] Epoch 1/5, ValAcc: 1.07%, TrainLoss: 4.5125, ValLoss: 4.5117, LR: 0.001
+[2025-07-24 22:02:26,758] [INFO] Epoch 2/5, ValAcc: 0.99%, TrainLoss: 4.5115, ValLoss: 4.5119, LR: 0.001
+[2025-07-24 22:03:10,362] [INFO] Epoch 3/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-24 22:03:54,111] [INFO] Epoch 4/5, ValAcc: 3.48%, TrainLoss: 4.4242, ValLoss: 4.1620, LR: 0.001
+[2025-07-24 22:04:35,382] [INFO] Epoch 5/5, ValAcc: 11.92%, TrainLoss: 3.9277, ValLoss: 3.4614, LR: 0.001
+[2025-07-24 22:04:40,049] [INFO] Namespace(path=['meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv'], pktcount=500, importance=False, kfold=1, model=['bilstm'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_dport.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_dport.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='dport', name='tcpdport_robust_bilstm_500_32_5_0.001_128_128_3_0.3_128_128'),0.1122,0.0762,0.0830,0.1122
+[2025-07-24 22:05:01,676] [INFO] Feature 0 normalized using robust
+[2025-07-24 22:05:01,676] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 22:05:01,697] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): RNN(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 22:05:01,697] [INFO] Training...
+[2025-07-24 22:05:22,441] [INFO] Epoch 1/5, ValAcc: 4.51%, TrainLoss: 4.3477, ValLoss: 4.1365, LR: 0.001
+[2025-07-24 22:05:43,656] [INFO] Epoch 2/5, ValAcc: 7.23%, TrainLoss: 4.0813, ValLoss: 3.9315, LR: 0.001
+[2025-07-24 22:06:04,861] [INFO] Epoch 3/5, ValAcc: 9.99%, TrainLoss: 3.9307, ValLoss: 3.7894, LR: 0.001
+[2025-07-24 22:06:26,155] [INFO] Epoch 4/5, ValAcc: 12.82%, TrainLoss: 3.8174, ValLoss: 3.6348, LR: 0.001
+[2025-07-24 22:06:47,399] [INFO] Epoch 5/5, ValAcc: 13.46%, TrainLoss: 3.7102, ValLoss: 3.5269, LR: 0.001
+[2025-07-24 22:06:48,317] [INFO] Namespace(path=['meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv'], pktcount=500, importance=False, kfold=1, model=['rnn'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_dport.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_dport.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='dport', name='tcpdport_robust_rnn_500_32_5_0.001_128_128_3_0.3_128_128'),0.1391,0.1079,0.1152,0.1395
+[2025-07-24 22:07:09,722] [INFO] Feature 0 normalized using robust
+[2025-07-24 22:07:09,723] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 22:07:09,736] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): RNN(128, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 22:07:09,736] [INFO] Training...
+[2025-07-24 22:07:35,327] [INFO] Epoch 1/5, ValAcc: 0.98%, TrainLoss: 4.5130, ValLoss: 4.5116, LR: 0.001
+[2025-07-24 22:08:00,181] [INFO] Epoch 2/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 22:08:15,774] [INFO] Epoch 3/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5124, LR: 0.001
+[2025-07-24 22:08:31,367] [INFO] Epoch 4/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5125, LR: 0.001
+[2025-07-24 22:08:54,008] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5125, LR: 0.0005
+[2025-07-24 22:08:55,490] [INFO] Namespace(path=['meta-free-apps/meta-tcp_dport/meta-tcp_dport.csv'], pktcount=500, importance=False, kfold=1, model=['birnn'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_dport.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_dport.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='dport', name='tcpdport_robust_birnn_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 22:08:56,277] [INFO] best(dport): gru, accuracy: 0.3522, f1: 0.3376, precision: 0.4020, recall: 0.3533

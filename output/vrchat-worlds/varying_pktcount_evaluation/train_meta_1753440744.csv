@@ -1,0 +1,2 @@
+name,accuracy,f1-score,precision,recall
+iplen-tcpwindow_token-token_bigru-bigru_700_64_50_0.001_512_256_3_0.3_256_128,0.8309,0.8295,0.8311,0.8298

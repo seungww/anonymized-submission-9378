@@ -1,0 +1,429 @@
+[2025-07-24 14:01:24,078] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len')
+[2025-07-24 14:02:47,601] [INFO] Processed data from vrchat-worlds/meta-ip_len/meta-ip_len.csv:
+[2025-07-24 14:02:47,602] [INFO] (15228, 500)
+[2025-07-24 14:02:47,602] [INFO] [['244' '141' '52' ... '60' '52' '233']
+ ['60' '60' '52' ... '94' '52' '52']
+ ['1432' '1432' '1432' ... '52' '770' '94']
+ ...
+ ['52' '1432' '1432' ... '76' '52' '76']
+ ['1432' '340' '52' ... '1432' '1432' '1432']
+ ['52' '52' '1432' ... '1432' '1432' '1432']]
+[2025-07-24 14:02:55,436] [INFO] Feature 0 normalized using none
+[2025-07-24 14:02:55,437] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:02:55,576] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Identity()
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(1, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:02:55,576] [INFO] Training...
+[2025-07-24 14:03:00,816] [INFO] Epoch 1/5, ValAcc: 1.97%, TrainLoss: 3.9167, ValLoss: 3.9170, LR: 0.001
+[2025-07-24 14:03:03,368] [INFO] Epoch 2/5, ValAcc: 1.97%, TrainLoss: 3.9137, ValLoss: 3.9147, LR: 0.001
+[2025-07-24 14:03:05,841] [INFO] Epoch 3/5, ValAcc: 1.44%, TrainLoss: 3.9131, ValLoss: 3.9151, LR: 0.001
+[2025-07-24 14:03:08,405] [INFO] Epoch 4/5, ValAcc: 1.97%, TrainLoss: 3.9126, ValLoss: 3.9148, LR: 0.001
+[2025-07-24 14:03:10,893] [INFO] Epoch 5/5, ValAcc: 1.97%, TrainLoss: 3.9122, ValLoss: 3.9150, LR: 0.001
+[2025-07-24 14:03:11,177] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_none_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0141,0.0006,0.0003,0.0200
+[2025-07-24 14:03:18,977] [INFO] Feature 0 normalized using minmax
+[2025-07-24 14:03:18,977] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:03:19,075] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:03:19,075] [INFO] Training...
+[2025-07-24 14:03:21,765] [INFO] Epoch 1/5, ValAcc: 2.63%, TrainLoss: 3.8945, ValLoss: 3.8921, LR: 0.001
+[2025-07-24 14:03:24,412] [INFO] Epoch 2/5, ValAcc: 3.28%, TrainLoss: 3.8522, ValLoss: 3.8566, LR: 0.001
+[2025-07-24 14:03:27,027] [INFO] Epoch 3/5, ValAcc: 3.55%, TrainLoss: 3.8346, ValLoss: 3.8391, LR: 0.001
+[2025-07-24 14:03:29,690] [INFO] Epoch 4/5, ValAcc: 4.66%, TrainLoss: 3.7949, ValLoss: 3.7796, LR: 0.001
+[2025-07-24 14:03:32,306] [INFO] Epoch 5/5, ValAcc: 9.65%, TrainLoss: 3.6995, ValLoss: 3.5661, LR: 0.001
+[2025-07-24 14:03:32,602] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['minmax'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_minmax_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0952,0.0585,0.0976,0.0922
+[2025-07-24 14:03:40,354] [INFO] Feature 0 normalized using zscore
+[2025-07-24 14:03:40,355] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:03:40,462] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:03:40,462] [INFO] Training...
+[2025-07-24 14:03:43,165] [INFO] Epoch 1/5, ValAcc: 3.02%, TrainLoss: 3.8799, ValLoss: 3.8640, LR: 0.001
+[2025-07-24 14:03:45,844] [INFO] Epoch 2/5, ValAcc: 4.20%, TrainLoss: 3.8382, ValLoss: 3.7899, LR: 0.001
+[2025-07-24 14:03:48,603] [INFO] Epoch 3/5, ValAcc: 6.24%, TrainLoss: 3.7753, ValLoss: 3.7142, LR: 0.001
+[2025-07-24 14:03:51,268] [INFO] Epoch 4/5, ValAcc: 7.49%, TrainLoss: 3.6710, ValLoss: 3.5692, LR: 0.001
+[2025-07-24 14:03:53,966] [INFO] Epoch 5/5, ValAcc: 10.05%, TrainLoss: 3.5409, ValLoss: 3.4426, LR: 0.001
+[2025-07-24 14:03:54,272] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['zscore'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_zscore_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0883,0.0575,0.0801,0.0891
+[2025-07-24 14:04:09,802] [INFO] Feature 0 normalized using token
+[2025-07-24 14:04:09,802] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:04:09,893] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1384, 128)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:04:09,894] [INFO] Training...
+[2025-07-24 14:04:12,936] [INFO] Epoch 1/5, ValAcc: 9.06%, TrainLoss: 3.7454, ValLoss: 3.3596, LR: 0.001
+[2025-07-24 14:04:15,696] [INFO] Epoch 2/5, ValAcc: 23.97%, TrainLoss: 3.0598, ValLoss: 2.5883, LR: 0.001
+[2025-07-24 14:04:18,438] [INFO] Epoch 3/5, ValAcc: 38.94%, TrainLoss: 2.4425, ValLoss: 2.1145, LR: 0.001
+[2025-07-24 14:04:21,132] [INFO] Epoch 4/5, ValAcc: 50.82%, TrainLoss: 1.9375, ValLoss: 1.6721, LR: 0.001
+[2025-07-24 14:04:23,857] [INFO] Epoch 5/5, ValAcc: 54.69%, TrainLoss: 1.5607, ValLoss: 1.4849, LR: 0.001
+[2025-07-24 14:04:24,161] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_token_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.5440,0.5351,0.5898,0.5437
+[2025-07-24 14:04:32,281] [INFO] Feature 0 normalized using binary
+[2025-07-24 14:04:32,281] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:04:32,398] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:04:32,409] [INFO] Training...
+[2025-07-24 14:04:35,110] [INFO] Epoch 1/5, ValAcc: 1.44%, TrainLoss: 3.9176, ValLoss: 3.9121, LR: 0.001
+[2025-07-24 14:04:38,119] [INFO] Epoch 2/5, ValAcc: 2.23%, TrainLoss: 3.9132, ValLoss: 3.9117, LR: 0.001
+[2025-07-24 14:04:40,956] [INFO] Epoch 3/5, ValAcc: 1.44%, TrainLoss: 3.9126, ValLoss: 3.9128, LR: 0.001
+[2025-07-24 14:04:43,727] [INFO] Epoch 4/5, ValAcc: 2.23%, TrainLoss: 3.9124, ValLoss: 3.9133, LR: 0.001
+[2025-07-24 14:04:46,482] [INFO] Epoch 5/5, ValAcc: 1.44%, TrainLoss: 3.9121, ValLoss: 3.9140, LR: 0.001
+[2025-07-24 14:04:46,800] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['binary'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_binary_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0207,0.0008,0.0004,0.0200
+[2025-07-24 14:04:55,813] [INFO] Feature 0 normalized using maxabs
+[2025-07-24 14:04:55,813] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:04:55,919] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:04:55,919] [INFO] Training...
+[2025-07-24 14:04:58,800] [INFO] Epoch 1/5, ValAcc: 3.22%, TrainLoss: 3.8888, ValLoss: 3.8573, LR: 0.001
+[2025-07-24 14:05:01,603] [INFO] Epoch 2/5, ValAcc: 4.20%, TrainLoss: 3.8494, ValLoss: 3.8441, LR: 0.001
+[2025-07-24 14:05:04,323] [INFO] Epoch 3/5, ValAcc: 2.23%, TrainLoss: 3.8339, ValLoss: 3.8292, LR: 0.001
+[2025-07-24 14:05:07,097] [INFO] Epoch 4/5, ValAcc: 6.30%, TrainLoss: 3.7857, ValLoss: 3.7352, LR: 0.001
+[2025-07-24 14:05:09,780] [INFO] Epoch 5/5, ValAcc: 9.13%, TrainLoss: 3.6727, ValLoss: 3.5656, LR: 0.001
+[2025-07-24 14:05:10,076] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['maxabs'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_maxabs_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0785,0.0601,0.0960,0.0794
+[2025-07-24 14:05:18,898] [INFO] Feature 0 normalized using l1norm
+[2025-07-24 14:05:18,899] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:05:18,958] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:05:18,958] [INFO] Training...
+[2025-07-24 14:05:21,725] [INFO] Epoch 1/5, ValAcc: 1.90%, TrainLoss: 3.9172, ValLoss: 3.9132, LR: 0.001
+[2025-07-24 14:05:24,652] [INFO] Epoch 2/5, ValAcc: 1.97%, TrainLoss: 3.9132, ValLoss: 3.9137, LR: 0.001
+[2025-07-24 14:05:27,444] [INFO] Epoch 3/5, ValAcc: 1.90%, TrainLoss: 3.9127, ValLoss: 3.9153, LR: 0.001
+[2025-07-24 14:05:30,055] [INFO] Epoch 4/5, ValAcc: 1.44%, TrainLoss: 3.9128, ValLoss: 3.9146, LR: 0.001
+[2025-07-24 14:05:32,769] [INFO] Epoch 5/5, ValAcc: 1.97%, TrainLoss: 3.9120, ValLoss: 3.9143, LR: 0.0005
+[2025-07-24 14:05:33,075] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['l1norm'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_l1norm_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0141,0.0006,0.0003,0.0200
+[2025-07-24 14:05:42,169] [INFO] Feature 0 normalized using l2norm
+[2025-07-24 14:05:42,169] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:05:42,273] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:05:42,273] [INFO] Training...
+[2025-07-24 14:05:44,885] [INFO] Epoch 1/5, ValAcc: 1.90%, TrainLoss: 3.9168, ValLoss: 3.9142, LR: 0.001
+[2025-07-24 14:05:47,615] [INFO] Epoch 2/5, ValAcc: 1.90%, TrainLoss: 3.9131, ValLoss: 3.9145, LR: 0.001
+[2025-07-24 14:05:50,298] [INFO] Epoch 3/5, ValAcc: 1.44%, TrainLoss: 3.9128, ValLoss: 3.9149, LR: 0.001
+[2025-07-24 14:05:52,815] [INFO] Epoch 4/5, ValAcc: 1.44%, TrainLoss: 3.9125, ValLoss: 3.9153, LR: 0.001
+[2025-07-24 14:05:55,598] [INFO] Epoch 5/5, ValAcc: 1.44%, TrainLoss: 3.9117, ValLoss: 3.9153, LR: 0.0005
+[2025-07-24 14:05:55,921] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['l2norm'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_l2norm_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0158,0.0006,0.0003,0.0200
+[2025-07-24 14:06:08,684] [INFO] Feature 0 normalized using power
+[2025-07-24 14:06:08,684] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:06:08,819] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:06:08,819] [INFO] Training...
+[2025-07-24 14:06:11,391] [INFO] Epoch 1/5, ValAcc: 3.22%, TrainLoss: 3.8831, ValLoss: 3.8683, LR: 0.001
+[2025-07-24 14:06:13,914] [INFO] Epoch 2/5, ValAcc: 2.56%, TrainLoss: 3.8405, ValLoss: 3.8614, LR: 0.001
+[2025-07-24 14:06:16,496] [INFO] Epoch 3/5, ValAcc: 5.98%, TrainLoss: 3.7995, ValLoss: 3.7666, LR: 0.001
+[2025-07-24 14:06:19,131] [INFO] Epoch 4/5, ValAcc: 7.35%, TrainLoss: 3.7278, ValLoss: 3.6529, LR: 0.001
+[2025-07-24 14:06:21,728] [INFO] Epoch 5/5, ValAcc: 10.05%, TrainLoss: 3.5706, ValLoss: 3.3918, LR: 0.001
+[2025-07-24 14:06:22,026] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['power'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_power_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.1064,0.0721,0.0841,0.1043
+[2025-07-24 14:06:30,788] [INFO] Feature 0 normalized using quantile
+[2025-07-24 14:06:30,788] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:06:30,852] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:06:30,852] [INFO] Training...
+[2025-07-24 14:06:33,514] [INFO] Epoch 1/5, ValAcc: 2.23%, TrainLoss: 3.8924, ValLoss: 3.8697, LR: 0.001
+[2025-07-24 14:06:36,115] [INFO] Epoch 2/5, ValAcc: 3.15%, TrainLoss: 3.8522, ValLoss: 3.8510, LR: 0.001
+[2025-07-24 14:06:38,667] [INFO] Epoch 3/5, ValAcc: 4.53%, TrainLoss: 3.8284, ValLoss: 3.8142, LR: 0.001
+[2025-07-24 14:06:41,325] [INFO] Epoch 4/5, ValAcc: 5.32%, TrainLoss: 3.7789, ValLoss: 3.7303, LR: 0.001
+[2025-07-24 14:06:43,849] [INFO] Epoch 5/5, ValAcc: 7.55%, TrainLoss: 3.6611, ValLoss: 3.5984, LR: 0.001
+[2025-07-24 14:06:44,144] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['quantile'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_quantile_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0676,0.0442,0.0512,0.0705
+[2025-07-24 14:06:52,146] [INFO] Feature 0 normalized using robust
+[2025-07-24 14:06:52,146] [INFO] Train shape: (10659, 500), Val shape: (1523, 500), Test shape: (3046, 500)
+[2025-07-24 14:06:52,240] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Linear(in_features=1, out_features=128, bias=True)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-24 14:06:52,240] [INFO] Training...
+[2025-07-24 14:06:54,909] [INFO] Epoch 1/5, ValAcc: 3.02%, TrainLoss: 3.9001, ValLoss: 3.8738, LR: 0.001
+[2025-07-24 14:06:57,534] [INFO] Epoch 2/5, ValAcc: 2.95%, TrainLoss: 3.8504, ValLoss: 3.8386, LR: 0.001
+[2025-07-24 14:07:00,214] [INFO] Epoch 3/5, ValAcc: 4.14%, TrainLoss: 3.8121, ValLoss: 3.7925, LR: 0.001
+[2025-07-24 14:07:02,791] [INFO] Epoch 4/5, ValAcc: 6.89%, TrainLoss: 3.7177, ValLoss: 3.6848, LR: 0.001
+[2025-07-24 14:07:05,325] [INFO] Epoch 5/5, ValAcc: 7.94%, TrainLoss: 3.6183, ValLoss: 3.5435, LR: 0.001
+[2025-07-24 14:07:05,613] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['robust'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/vrchat-worlds/step1/step1_meta_ip_len.debug', leaderboard_path='output/vrchat-worlds/step1/step1_meta_ip_len.csv', step1=True, step2=False, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='len', name='iplen_robust_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0903,0.0537,0.0549,0.0908
+[2025-07-24 14:07:05,784] [INFO] best(len): token, accuracy: 0.5440, f1: 0.5351, precision: 0.5898, recall: 0.5437

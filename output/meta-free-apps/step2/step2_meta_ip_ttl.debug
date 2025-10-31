@@ -1,0 +1,239 @@
+[2025-07-24 17:13:08,804] [INFO] Namespace(path=['meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_ip_ttl.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_ip_ttl.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='ttl')
+[2025-07-24 17:16:44,462] [INFO] Processed data from meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv:
+[2025-07-24 17:16:44,463] [INFO] (84492, 500)
+[2025-07-24 17:16:44,463] [INFO] [['64' '49' '64' ... '64' '64' '64']
+ ['64' '49' '64' ... '64' '49' '49']
+ ['64' '49' '64' ... '64' '49' '49']
+ ...
+ ['64' '50' '64' ... '64' '64' '64']
+ ['64' '50' '64' ... '64' '64' '48']
+ ['64' '64' '64' ... '64' '64' '48']]
+[2025-07-24 17:17:16,649] [INFO] Feature 0 normalized using token
+[2025-07-24 17:17:16,649] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 17:17:16,694] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(18, 128)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 17:17:16,694] [INFO] Training...
+[2025-07-24 17:17:38,017] [INFO] Epoch 1/5, ValAcc: 12.57%, TrainLoss: 3.9178, ValLoss: 3.2943, LR: 0.001
+[2025-07-24 17:17:57,053] [INFO] Epoch 2/5, ValAcc: 10.34%, TrainLoss: 3.2761, ValLoss: 3.2762, LR: 0.001
+[2025-07-24 17:18:20,246] [INFO] Epoch 3/5, ValAcc: 18.20%, TrainLoss: 3.0490, ValLoss: 2.8810, LR: 0.001
+[2025-07-24 17:18:43,609] [INFO] Epoch 4/5, ValAcc: 24.28%, TrainLoss: 2.9115, ValLoss: 2.7098, LR: 0.001
+[2025-07-24 17:19:00,632] [INFO] Epoch 5/5, ValAcc: 30.08%, TrainLoss: 2.7692, ValLoss: 2.5311, LR: 0.001
+[2025-07-24 17:19:01,996] [INFO] Namespace(path=['meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_ip_ttl.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_ip_ttl.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='ttl', name='ipttl_token_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.2921,0.2640,0.3014,0.2933
+[2025-07-24 17:19:34,561] [INFO] Feature 0 normalized using token
+[2025-07-24 17:19:34,561] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 17:19:34,620] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(18, 128)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(128, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 17:19:34,620] [INFO] Training...
+[2025-07-24 17:20:03,941] [INFO] Epoch 1/5, ValAcc: 9.36%, TrainLoss: 3.9543, ValLoss: 3.4514, LR: 0.001
+[2025-07-24 17:20:32,833] [INFO] Epoch 2/5, ValAcc: 14.14%, TrainLoss: 3.3622, ValLoss: 3.1056, LR: 0.001
+[2025-07-24 17:21:02,037] [INFO] Epoch 3/5, ValAcc: 17.93%, TrainLoss: 3.1282, ValLoss: 2.9171, LR: 0.001
+[2025-07-24 17:21:31,342] [INFO] Epoch 4/5, ValAcc: 19.10%, TrainLoss: 3.0018, ValLoss: 2.8331, LR: 0.001
+[2025-07-24 17:22:01,247] [INFO] Epoch 5/5, ValAcc: 21.53%, TrainLoss: 2.9174, ValLoss: 2.7348, LR: 0.001
+[2025-07-24 17:22:03,669] [INFO] Namespace(path=['meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv'], pktcount=500, importance=False, kfold=1, model=['bigru'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_ip_ttl.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_ip_ttl.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='ttl', name='ipttl_token_bigru_500_32_5_0.001_128_128_3_0.3_128_128'),0.2182,0.1733,0.2121,0.2188
+[2025-07-24 17:22:36,217] [INFO] Feature 0 normalized using token
+[2025-07-24 17:22:36,218] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 17:22:36,244] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(18, 128)
+  )
+  (rnn_layers): ModuleList(
+    (0): LSTM(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 17:22:36,245] [INFO] Training...
+[2025-07-24 17:23:01,510] [INFO] Epoch 1/5, ValAcc: 6.75%, TrainLoss: 4.2314, ValLoss: 3.7984, LR: 0.001
+[2025-07-24 17:23:27,069] [INFO] Epoch 2/5, ValAcc: 8.08%, TrainLoss: 3.7454, ValLoss: 3.6510, LR: 0.001
+[2025-07-24 17:23:52,920] [INFO] Epoch 3/5, ValAcc: 1.07%, TrainLoss: 3.5705, ValLoss: 4.5145, LR: 0.001
+[2025-07-24 17:24:18,586] [INFO] Epoch 4/5, ValAcc: 0.98%, TrainLoss: 4.5125, ValLoss: 4.5124, LR: 0.001
+[2025-07-24 17:24:44,150] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5112, ValLoss: 4.5124, LR: 0.001
+[2025-07-24 17:24:46,655] [INFO] Namespace(path=['meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv'], pktcount=500, importance=False, kfold=1, model=['lstm'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_ip_ttl.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_ip_ttl.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='ttl', name='ipttl_token_lstm_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 17:25:19,193] [INFO] Feature 0 normalized using token
+[2025-07-24 17:25:19,193] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 17:25:19,222] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(18, 128)
+  )
+  (rnn_layers): ModuleList(
+    (0): LSTM(128, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 17:25:19,222] [INFO] Training...
+[2025-07-24 17:26:03,602] [INFO] Epoch 1/5, ValAcc: 6.47%, TrainLoss: 4.3037, ValLoss: 3.8925, LR: 0.001
+[2025-07-24 17:26:48,037] [INFO] Epoch 2/5, ValAcc: 9.31%, TrainLoss: 3.8921, ValLoss: 3.5222, LR: 0.001
+[2025-07-24 17:27:32,416] [INFO] Epoch 3/5, ValAcc: 2.63%, TrainLoss: 3.5196, ValLoss: 4.2761, LR: 0.001
+[2025-07-24 17:28:17,396] [INFO] Epoch 4/5, ValAcc: 10.80%, TrainLoss: 3.7054, ValLoss: 3.3106, LR: 0.001
+[2025-07-24 17:29:02,281] [INFO] Epoch 5/5, ValAcc: 16.67%, TrainLoss: 3.2253, ValLoss: 3.0032, LR: 0.001
+[2025-07-24 17:29:06,972] [INFO] Namespace(path=['meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv'], pktcount=500, importance=False, kfold=1, model=['bilstm'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_ip_ttl.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_ip_ttl.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='ttl', name='ipttl_token_bilstm_500_32_5_0.001_128_128_3_0.3_128_128'),0.1655,0.1122,0.1201,0.1641
+[2025-07-24 17:29:39,914] [INFO] Feature 0 normalized using token
+[2025-07-24 17:29:39,914] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 17:29:39,941] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(18, 128)
+  )
+  (rnn_layers): ModuleList(
+    (0): RNN(128, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 17:29:39,941] [INFO] Training...
+[2025-07-24 17:29:59,704] [INFO] Epoch 1/5, ValAcc: 4.92%, TrainLoss: 4.2799, ValLoss: 4.1086, LR: 0.001
+[2025-07-24 17:30:19,571] [INFO] Epoch 2/5, ValAcc: 6.46%, TrainLoss: 4.0887, ValLoss: 3.9775, LR: 0.001
+[2025-07-24 17:30:40,001] [INFO] Epoch 3/5, ValAcc: 8.21%, TrainLoss: 3.9753, ValLoss: 3.8518, LR: 0.001
+[2025-07-24 17:31:00,407] [INFO] Epoch 4/5, ValAcc: 9.47%, TrainLoss: 3.9305, ValLoss: 3.7966, LR: 0.001
+[2025-07-24 17:31:21,877] [INFO] Epoch 5/5, ValAcc: 8.13%, TrainLoss: 3.8600, ValLoss: 3.8171, LR: 0.001
+[2025-07-24 17:31:22,810] [INFO] Namespace(path=['meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv'], pktcount=500, importance=False, kfold=1, model=['rnn'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_ip_ttl.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_ip_ttl.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='ttl', name='ipttl_token_rnn_500_32_5_0.001_128_128_3_0.3_128_128'),0.0813,0.0459,0.0556,0.0806
+[2025-07-24 17:31:55,732] [INFO] Feature 0 normalized using token
+[2025-07-24 17:31:55,732] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 17:31:55,790] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(18, 128)
+  )
+  (rnn_layers): ModuleList(
+    (0): RNN(128, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 17:31:55,790] [INFO] Training...
+[2025-07-24 17:32:11,576] [INFO] Epoch 1/5, ValAcc: 5.64%, TrainLoss: 4.2756, ValLoss: 4.1345, LR: 0.001
+[2025-07-24 17:32:27,368] [INFO] Epoch 2/5, ValAcc: 1.37%, TrainLoss: 4.0371, ValLoss: 4.5013, LR: 0.001
+[2025-07-24 17:32:51,876] [INFO] Epoch 3/5, ValAcc: 7.29%, TrainLoss: 4.0902, ValLoss: 3.8943, LR: 0.001
+[2025-07-24 17:33:16,785] [INFO] Epoch 4/5, ValAcc: 8.75%, TrainLoss: 3.9160, ValLoss: 3.7991, LR: 0.001
+[2025-07-24 17:33:41,668] [INFO] Epoch 5/5, ValAcc: 11.25%, TrainLoss: 3.8184, ValLoss: 3.6326, LR: 0.001
+[2025-07-24 17:33:43,155] [INFO] Namespace(path=['meta-free-apps/meta-ip_ttl/meta-ip_ttl.csv'], pktcount=500, importance=False, kfold=1, model=['birnn'], norm=['token'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_ip_ttl.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_ip_ttl.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='ttl', name='ipttl_token_birnn_500_32_5_0.001_128_128_3_0.3_128_128'),0.1134,0.0868,0.0926,0.1135
+[2025-07-24 17:33:43,834] [INFO] best(ttl): gru, accuracy: 0.2921, f1: 0.2640, precision: 0.3014, recall: 0.2933

@@ -1,0 +1,6 @@
+name,accuracy,f1-score,precision,recall
+iplen-tcpwindow_token-token_bigru-bigru_1000_64_50_0.001_512_256_3_0.3_256_128,0.8664,0.8637,0.8657,0.8641
+iplen-tcpwindow_token-token_bigru-bigru_1000_64_50_0.001_512_256_3_0.3_256_128,0.8529,0.8562,0.8578,0.8585
+iplen-tcpwindow_token-token_bigru-bigru_1000_64_50_0.001_512_256_3_0.3_256_128,0.8605,0.8616,0.865,0.862
+iplen-tcpwindow_token-token_bigru-bigru_1000_64_50_0.001_512_256_3_0.3_256_128,0.8667,0.864,0.8658,0.8652
+iplen-tcpwindow_token-token_bigru-bigru_1000_64_50_0.001_512_256_3_0.3_256_128,0.865,0.8637,0.8673,0.8637

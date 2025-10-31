@@ -1,0 +1,64 @@
+[2025-07-31 18:08:01,413] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=100, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=300, step_size=100, debug_path='output/vrchat-worlds/varying_pktcount_evaluation/train_meta_1753985279.debug', leaderboard_path='output/vrchat-worlds/varying_pktcount_evaluation/train_meta_1753985279.csv', step1=False, step2=False, step3=False, train=True, sliding_window_evaluation=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'))
+[2025-07-31 18:08:31,456] [INFO] Processed data from vrchat-worlds/meta-ip_len/meta-ip_len.csv:
+[2025-07-31 18:08:31,456] [INFO] (15228, 100)
+[2025-07-31 18:08:31,457] [INFO] [['244' '141' '52' ... '52' '52' '365']
+ ['60' '60' '52' ... '934' '76' '52']
+ ['1432' '1432' '1432' ... '98' '1432' '52']
+ ...
+ ['52' '1432' '1432' ... '52' '76' '52']
+ ['1432' '340' '52' ... '94' '52' '286']
+ ['52' '52' '1432' ... '52' '1432' '1432']]
+[2025-07-31 18:08:32,187] [INFO] Feature 0 normalized using token
+[2025-07-31 18:08:32,187] [INFO] Train shape: (10659, 100), Val shape: (1523, 100), Test shape: (3046, 100)
+[2025-07-31 18:08:32,233] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Embedding(1366, 512)
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(512, 256, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=512, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=512, out_features=256, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=50, bias=True)
+  )
+)
+[2025-07-31 18:08:32,233] [INFO] Training...
+[2025-07-31 18:08:39,074] [INFO] Epoch 1/50, ValAcc: 7.94%, TrainLoss: 3.8508, ValLoss: 3.5223, LR: 0.001
+[2025-07-31 18:08:45,005] [INFO] Epoch 2/50, ValAcc: 21.80%, TrainLoss: 3.2817, ValLoss: 2.8952, LR: 0.001
+[2025-07-31 18:08:50,781] [INFO] Epoch 3/50, ValAcc: 31.71%, TrainLoss: 2.7148, ValLoss: 2.5010, LR: 0.001
+[2025-07-31 18:08:56,648] [INFO] Epoch 4/50, ValAcc: 36.77%, TrainLoss: 2.3057, ValLoss: 2.2678, LR: 0.001
+[2025-07-31 18:09:02,457] [INFO] Epoch 5/50, ValAcc: 41.10%, TrainLoss: 2.0693, ValLoss: 2.2101, LR: 0.001
+[2025-07-31 18:09:08,328] [INFO] Epoch 6/50, ValAcc: 42.09%, TrainLoss: 1.9024, ValLoss: 2.1647, LR: 0.001
+[2025-07-31 18:09:14,128] [INFO] Epoch 7/50, ValAcc: 42.35%, TrainLoss: 1.7685, ValLoss: 2.2032, LR: 0.001
+[2025-07-31 18:09:17,665] [INFO] Epoch 8/50, ValAcc: 42.55%, TrainLoss: 1.6577, ValLoss: 2.2618, LR: 0.001
+[2025-07-31 18:09:20,504] [INFO] Epoch 9/50, ValAcc: 41.63%, TrainLoss: 1.5949, ValLoss: 2.2964, LR: 0.001
+[2025-07-31 18:09:26,373] [INFO] Epoch 10/50, ValAcc: 44.52%, TrainLoss: 1.3971, ValLoss: 2.4333, LR: 0.0005
+[2025-07-31 18:09:32,142] [INFO] Epoch 11/50, ValAcc: 45.70%, TrainLoss: 1.2846, ValLoss: 2.4906, LR: 0.0005
+[2025-07-31 18:09:38,024] [INFO] Epoch 12/50, ValAcc: 44.19%, TrainLoss: 1.2074, ValLoss: 2.6344, LR: 0.0005
+[2025-07-31 18:09:43,828] [INFO] Epoch 13/50, ValAcc: 44.45%, TrainLoss: 1.0918, ValLoss: 2.8132, LR: 0.00025
+[2025-07-31 18:09:49,672] [INFO] Epoch 14/50, ValAcc: 45.17%, TrainLoss: 1.0316, ValLoss: 2.8783, LR: 0.00025
+[2025-07-31 18:09:55,508] [INFO] Epoch 15/50, ValAcc: 44.85%, TrainLoss: 0.9854, ValLoss: 3.1390, LR: 0.00025
+[2025-07-31 18:10:01,335] [INFO] Epoch 16/50, ValAcc: 44.65%, TrainLoss: 0.9224, ValLoss: 3.2169, LR: 0.000125
+[2025-07-31 18:10:07,183] [INFO] Epoch 17/50, ValAcc: 44.65%, TrainLoss: 0.8894, ValLoss: 3.3193, LR: 0.000125
+[2025-07-31 18:10:12,950] [INFO] Epoch 18/50, ValAcc: 45.50%, TrainLoss: 0.8689, ValLoss: 3.4073, LR: 0.000125
+[2025-07-31 18:10:18,831] [INFO] Epoch 19/50, ValAcc: 45.17%, TrainLoss: 0.8377, ValLoss: 3.5304, LR: 6.25e-05
+[2025-07-31 18:10:18,831] [INFO] Learning rate 0.000063 is below threshold. Stopping early.
+[2025-07-31 18:10:19,872] [INFO] Namespace(path=['vrchat-worlds/meta-ip_len/meta-ip_len.csv'], pktcount=100, kfold=1, model=['bigru'], norm=['token'], input_dim=512, hidden_size=256, num_layers=3, dropout=0.3, fusion_dim=256, fc_hidden_size=128, batch_size=64, epoch=50, lr=0.001, feature_attention=False, timestep_attention=False, strict=True, window_size=300, step_size=100, debug_path='output/vrchat-worlds/varying_pktcount_evaluation/train_meta_1753985279.debug', leaderboard_path='output/vrchat-worlds/varying_pktcount_evaluation/train_meta_1753985279.csv', step1=False, step2=False, step3=False, train=True, sliding_window_evaluation=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), name='iplen_token_bigru_100_64_50_0.001_512_256_3_0.3_256_128'),0.4544,0.4531,0.4712,0.4492
+[2025-07-31 18:10:19,893] [INFO] [(0.45436638214051217, 0.4530750459626431, 0.47121705101219574, 0.4492303715979179)]

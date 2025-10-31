@@ -1,0 +1,2 @@
+name,accuracy,f1-score,precision,recall
+tcpflags_token_gru_500_32_5_0.001_128_128_3_0.3_128_128,0.0939,0.0565,0.0603,0.0929

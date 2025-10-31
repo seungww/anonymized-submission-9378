@@ -1,0 +1,2 @@
+name,accuracy,f1-score,precision,recall
+ipdst_token_gru_500_32_5_0.001_128_128_3_0.3_128_128,0.1989,0.1652,0.2556,0.1992

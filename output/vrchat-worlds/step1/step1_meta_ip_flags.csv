@@ -1,0 +1,2 @@
+name,accuracy,f1-score,precision,recall
+ipflags_token_gru_500_32_5_0.001_128_128_3_0.3_128_128,0.0158,0.0006,0.0003,0.02

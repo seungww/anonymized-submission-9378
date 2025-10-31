@@ -1,0 +1,239 @@
+[2025-07-24 21:09:59,909] [INFO] Namespace(path=['meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='urgptr')
+[2025-07-24 21:13:13,995] [INFO] Processed data from meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv:
+[2025-07-24 21:13:13,996] [INFO] (84492, 500)
+[2025-07-24 21:13:13,996] [INFO] [['0' '0' '0' ... '0' '0' '0']
+ ['0' '0' '0' ... '0' '0' '0']
+ ['0' '0' '0' ... '0' '0' '0']
+ ...
+ ['0' '0' '0' ... '0' '0' '0']
+ ['0' '0' '0' ... '0' '0' '0']
+ ['0' '0' '0' ... '0' '0' '0']]
+[2025-07-24 21:13:28,260] [INFO] Feature 0 normalized using none
+[2025-07-24 21:13:28,261] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:13:28,306] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Identity()
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(1, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:13:28,306] [INFO] Training...
+[2025-07-24 21:13:48,590] [INFO] Epoch 1/5, ValAcc: 1.04%, TrainLoss: 4.5122, ValLoss: 4.5113, LR: 0.001
+[2025-07-24 21:14:09,946] [INFO] Epoch 2/5, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:14:31,899] [INFO] Epoch 3/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:14:53,192] [INFO] Epoch 4/5, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5125, LR: 0.001
+[2025-07-24 21:15:14,112] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5124, LR: 0.0005
+[2025-07-24 21:15:15,397] [INFO] Namespace(path=['meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv'], pktcount=500, importance=False, kfold=1, model=['gru'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='urgptr', name='tcpurgptr_none_gru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 21:15:30,489] [INFO] Feature 0 normalized using none
+[2025-07-24 21:15:30,489] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:15:30,563] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Identity()
+  )
+  (rnn_layers): ModuleList(
+    (0): GRU(1, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:15:30,563] [INFO] Training...
+[2025-07-24 21:15:58,300] [INFO] Epoch 1/5, ValAcc: 0.98%, TrainLoss: 4.5125, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:16:26,430] [INFO] Epoch 2/5, ValAcc: 0.98%, TrainLoss: 4.5114, ValLoss: 4.5121, LR: 0.001
+[2025-07-24 21:16:54,564] [INFO] Epoch 3/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-24 21:17:23,032] [INFO] Epoch 4/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-24 21:17:49,467] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5123, LR: 0.0005
+[2025-07-24 21:17:51,735] [INFO] Namespace(path=['meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv'], pktcount=500, importance=False, kfold=1, model=['bigru'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='urgptr', name='tcpurgptr_none_bigru_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 21:18:06,458] [INFO] Feature 0 normalized using none
+[2025-07-24 21:18:06,459] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:18:06,489] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Identity()
+  )
+  (rnn_layers): ModuleList(
+    (0): LSTM(1, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:18:06,489] [INFO] Training...
+[2025-07-24 21:18:28,351] [INFO] Epoch 1/5, ValAcc: 0.91%, TrainLoss: 4.5122, ValLoss: 4.5121, LR: 0.001
+[2025-07-24 21:18:53,798] [INFO] Epoch 2/5, ValAcc: 1.04%, TrainLoss: 4.5112, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:19:18,376] [INFO] Epoch 3/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:19:42,977] [INFO] Epoch 4/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:20:07,594] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5123, LR: 0.0005
+[2025-07-24 21:20:09,989] [INFO] Namespace(path=['meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv'], pktcount=500, importance=False, kfold=1, model=['lstm'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='urgptr', name='tcpurgptr_none_lstm_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 21:20:24,680] [INFO] Feature 0 normalized using none
+[2025-07-24 21:20:24,680] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:20:24,705] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Identity()
+  )
+  (rnn_layers): ModuleList(
+    (0): LSTM(1, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:20:24,705] [INFO] Training...
+[2025-07-24 21:21:06,819] [INFO] Epoch 1/5, ValAcc: 1.04%, TrainLoss: 4.5120, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:21:48,830] [INFO] Epoch 2/5, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-24 21:22:31,011] [INFO] Epoch 3/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-24 21:23:13,307] [INFO] Epoch 4/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:23:55,640] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5107, ValLoss: 4.5123, LR: 0.0005
+[2025-07-24 21:24:00,121] [INFO] Namespace(path=['meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv'], pktcount=500, importance=False, kfold=1, model=['bilstm'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='urgptr', name='tcpurgptr_none_bilstm_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 21:24:15,006] [INFO] Feature 0 normalized using none
+[2025-07-24 21:24:15,006] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:24:15,036] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Identity()
+  )
+  (rnn_layers): ModuleList(
+    (0): RNN(1, 128, num_layers=3, batch_first=True, dropout=0.3)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=128, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:24:15,036] [INFO] Training...
+[2025-07-24 21:24:34,930] [INFO] Epoch 1/5, ValAcc: 0.99%, TrainLoss: 4.5124, ValLoss: 4.5121, LR: 0.001
+[2025-07-24 21:24:54,561] [INFO] Epoch 2/5, ValAcc: 1.04%, TrainLoss: 4.5112, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:25:14,096] [INFO] Epoch 3/5, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-24 21:25:34,500] [INFO] Epoch 4/5, ValAcc: 1.04%, TrainLoss: 4.5111, ValLoss: 4.5121, LR: 0.001
+[2025-07-24 21:25:54,890] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5122, LR: 0.0005
+[2025-07-24 21:25:55,767] [INFO] Namespace(path=['meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv'], pktcount=500, importance=False, kfold=1, model=['rnn'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='urgptr', name='tcpurgptr_none_rnn_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 21:26:10,425] [INFO] Feature 0 normalized using none
+[2025-07-24 21:26:10,425] [INFO] Train shape: (59143, 500), Val shape: (8450, 500), Test shape: (16899, 500)
+[2025-07-24 21:26:10,476] [INFO] Classifier: VRScannerModel(
+  (input_modules): ModuleList(
+    (0): Identity()
+  )
+  (rnn_layers): ModuleList(
+    (0): RNN(1, 128, num_layers=3, batch_first=True, dropout=0.3, bidirectional=True)
+  )
+  (attn_nets): ModuleList(
+    (0): Sequential(
+      (0): Linear(in_features=256, out_features=64, bias=True)
+      (1): Tanh()
+      (2): Linear(in_features=64, out_features=1, bias=True)
+    )
+  )
+  (projection_layers): ModuleList(
+    (0): Linear(in_features=256, out_features=128, bias=True)
+  )
+  (feature_attn_net): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): Tanh()
+    (2): Linear(in_features=128, out_features=1, bias=True)
+  )
+  (fc): Sequential(
+    (0): Linear(in_features=128, out_features=128, bias=True)
+    (1): ReLU()
+    (2): Dropout(p=0.3, inplace=False)
+    (3): Linear(in_features=128, out_features=91, bias=True)
+  )
+)
+[2025-07-24 21:26:10,476] [INFO] Training...
+[2025-07-24 21:26:34,693] [INFO] Epoch 1/5, ValAcc: 1.07%, TrainLoss: 4.5125, ValLoss: 4.5119, LR: 0.001
+[2025-07-24 21:26:58,518] [INFO] Epoch 2/5, ValAcc: 0.98%, TrainLoss: 4.5112, ValLoss: 4.5122, LR: 0.001
+[2025-07-24 21:27:22,405] [INFO] Epoch 3/5, ValAcc: 0.91%, TrainLoss: 4.5111, ValLoss: 4.5123, LR: 0.001
+[2025-07-24 21:27:46,335] [INFO] Epoch 4/5, ValAcc: 0.98%, TrainLoss: 4.5111, ValLoss: 4.5124, LR: 0.001
+[2025-07-24 21:28:10,259] [INFO] Epoch 5/5, ValAcc: 0.98%, TrainLoss: 4.5108, ValLoss: 4.5124, LR: 0.0005
+[2025-07-24 21:28:11,694] [INFO] Namespace(path=['meta-free-apps/meta-tcp_urgptr/meta-tcp_urgptr.csv'], pktcount=500, importance=False, kfold=1, model=['birnn'], norm=['none'], attention=False, input_dim=128, hidden_size=128, num_layers=3, dropout=0.3, fusion_dim=128, fc_hidden_size=128, batch_size=32, epoch=5, lr=0.001, debug_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.debug', leaderboard_path='output/meta-free-apps/step2/step2_meta_tcp_urgptr.csv', step1=False, step2=True, step3=False, train=False, longitudinal_evaluation=False, openworld_evaluation=False, device=device(type='cuda'), metadata='urgptr', name='tcpurgptr_none_birnn_500_32_5_0.001_128_128_3_0.3_128_128'),0.0102,0.0002,0.0001,0.0110
+[2025-07-24 21:28:11,859] [INFO] best(urgptr): gru, accuracy: 0.0102, f1: 0.0002, precision: 0.0001, recall: 0.0110

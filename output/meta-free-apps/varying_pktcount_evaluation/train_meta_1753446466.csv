@@ -1,0 +1,2 @@
+name,accuracy,f1-score,precision,recall
+iplen_token_bigru_3000_64_50_0.001_512_256_3_0.3_256_128,0.9579,0.9591,0.9628,0.9579

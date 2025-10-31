@@ -1,0 +1,2 @@
+name,accuracy,f1-score,precision,recall
+ipversion-ipihl-ipttl-iptos-ipproto-iplen-ipid-ipfrag-ipflags-ipchksum-ipsrc-ipdst-tcpsport-tcpdport-tcpwindow-tcpurgptr-tcpseq-tcpack-tcpreserved-tcpflags-tcpdataofs-tcpchksum_none-zscore-token-none-token-token-robust-none-token-token-token-token-maxabs-robust-token-none-none-power-token-token-power-token_gru-lstm-gru-gru-bilstm-bigru-gru-gru-bigru-bigru-bilstm-bilstm-gru-gru-bigru-gru-lstm-gru-bilstm-bilstm-bigru-gru_1000_64_50_0.001_512_128_3_0.3_256_128,0.9475,0.9472,0.9482,0.9475

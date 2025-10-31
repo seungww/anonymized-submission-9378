@@ -1,0 +1,6 @@
+numpy==2.3.1
+pandas==2.3.1
+pyshark==0.6
+scapy==2.6.1
+scikit_learn==1.7.1
+torch==2.6.0
