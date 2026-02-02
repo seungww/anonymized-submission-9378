@@ -11,6 +11,12 @@ def get_model(args, num_of_classes, num_tokens_list):
     dropout = args.dropout
     fusion_dim = args.fusion_dim
     fc_hidden_size = args.fc_hidden_size
+    cnn_kernel_size = args.cnn_kernel_size
+    cnn_layers = args.cnn_layers
+    transformer_heads = args.transformer_heads
+    transformer_ff = args.transformer_ff
+    transformer_layers = args.transformer_layers
+    transformer_dropout = args.transformer_dropout
 
     output_size = num_of_classes
     input_layers = []
@@ -41,5 +47,11 @@ def get_model(args, num_of_classes, num_tokens_list):
         num_layers=num_layers,
         dropout=dropout,
         fusion_dim=fusion_dim,
-        fc_hidden_size=fc_hidden_size
+        fc_hidden_size=fc_hidden_size,
+        cnn_kernel_size=cnn_kernel_size,
+        cnn_layers=cnn_layers,
+        transformer_heads=transformer_heads,
+        transformer_ff=transformer_ff,
+        transformer_layers=transformer_layers,
+        transformer_dropout=transformer_dropout
     )

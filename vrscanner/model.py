@@ -1,18 +1,38 @@
+import math
 import torch
 import torch.nn as nn
 
 
 class VRScannerModel(nn.Module):
-    def __init__(self, model_types, output_size, input_layers, input_sizes, input_dims,
-                 hidden_size, num_layers, dropout, fusion_dim=256, fc_hidden_size=128):
+    def __init__(
+        self,
+        model_types,
+        output_size,
+        input_layers,
+        input_sizes,
+        input_dims,
+        hidden_size,
+        num_layers,
+        dropout,
+        fusion_dim=256,
+        fc_hidden_size=128,
+        cnn_kernel_size=3,
+        cnn_layers=2,
+        transformer_heads=4,
+        transformer_ff=512,
+        transformer_layers=2,
+        transformer_dropout=0.1,
+    ):
         super(VRScannerModel, self).__init__()
 
         self.input_modules = nn.ModuleList()
-        self.rnn_layers = nn.ModuleList()
+        self.sequence_encoders = nn.ModuleList()
+        self.transformer_input_proj = nn.ModuleList()
         self.attn_nets = nn.ModuleList()          # timestep-level attention
         self.projection_layers = nn.ModuleList()
 
         self.input_specs = []
+        self.encoder_types = []
 
         rnn_dict = {
             "rnn": nn.RNN,
@@ -30,11 +50,6 @@ class VRScannerModel(nn.Module):
                 bidirectional = True
                 model_type = model_type[2:]
 
-            if model_type not in rnn_dict:
-                raise ValueError(f"Unsupported model type: {model_type_raw}")
-
-            rnn_class = rnn_dict[model_type]
-
             # Input layer
             if in_layer == "embedding":
                 self.input_modules.append(nn.Embedding(input_sizes[i], input_dims[i]))
@@ -48,13 +63,52 @@ class VRScannerModel(nn.Module):
             else:
                 raise ValueError(f"Unknown input layer type: {in_layer}")
 
-            self.rnn_layers.append(
-                rnn_class(rnn_input_size, hidden_size, num_layers,
-                          batch_first=True, dropout=dropout,
-                          bidirectional=bidirectional)
-            )
+            if model_type in rnn_dict:
+                rnn_class = rnn_dict[model_type]
+                self.sequence_encoders.append(
+                    rnn_class(rnn_input_size, hidden_size, num_layers,
+                              batch_first=True, dropout=dropout,
+                              bidirectional=bidirectional)
+                )
+                rnn_output_dim = hidden_size * (2 if bidirectional else 1)
+                self.transformer_input_proj.append(nn.Identity())
+                self.encoder_types.append("rnn")
+            elif model_type == "cnn":
+                if cnn_kernel_size < 1:
+                    raise ValueError("cnn_kernel_size must be >= 1")
+                padding = cnn_kernel_size // 2
+                layers = []
+                in_channels = rnn_input_size
+                for _ in range(max(1, cnn_layers)):
+                    layers.append(nn.Conv1d(in_channels, hidden_size, kernel_size=cnn_kernel_size, padding=padding))
+                    layers.append(nn.ReLU())
+                    if dropout > 0:
+                        layers.append(nn.Dropout(p=dropout))
+                    in_channels = hidden_size
+                self.sequence_encoders.append(nn.Sequential(*layers))
+                rnn_output_dim = hidden_size
+                self.transformer_input_proj.append(nn.Identity())
+                self.encoder_types.append("cnn")
+            elif model_type == "transformer":
+                if hidden_size % transformer_heads != 0:
+                    raise ValueError("hidden_size must be divisible by transformer_heads")
+                if rnn_input_size == hidden_size:
+                    self.transformer_input_proj.append(nn.Identity())
+                else:
+                    self.transformer_input_proj.append(nn.Linear(rnn_input_size, hidden_size))
+                encoder_layer = nn.TransformerEncoderLayer(
+                    d_model=hidden_size,
+                    nhead=transformer_heads,
+                    dim_feedforward=transformer_ff,
+                    dropout=transformer_dropout,
+                    batch_first=True,
+                )
+                self.sequence_encoders.append(nn.TransformerEncoder(encoder_layer, num_layers=transformer_layers))
+                rnn_output_dim = hidden_size
+                self.encoder_types.append("transformer")
+            else:
+                raise ValueError(f"Unsupported model type: {model_type_raw}")
 
-            rnn_output_dim = hidden_size * (2 if bidirectional else 1)
             self.rnn_output_dims.append(rnn_output_dim)
 
             self.attn_nets.append(nn.Sequential(
@@ -85,11 +139,23 @@ class VRScannerModel(nn.Module):
         rnn_outputs = []
         attn_weights_all = []
 
-        for i, (input_module, rnn_layer, attn_net, proj_layer) in enumerate(
-                zip(self.input_modules, self.rnn_layers, self.attn_nets, self.projection_layers)):
+        for i, (input_module, encoder, encoder_type, attn_net, proj_layer) in enumerate(
+                zip(self.input_modules, self.sequence_encoders, self.encoder_types, self.attn_nets, self.projection_layers)):
             input_x = x[i]  # shape: [B, T] or [B, T, D]
             embedded = input_module(input_x)  # [B, T, D]
-            out, _ = rnn_layer(embedded)      # [B, T, H]
+
+            if encoder_type == "rnn":
+                out, _ = encoder(embedded)      # [B, T, H]
+            elif encoder_type == "cnn":
+                conv_in = embedded.transpose(1, 2)  # [B, D, T]
+                conv_out = encoder(conv_in)         # [B, H, T]
+                out = conv_out.transpose(1, 2)      # [B, T, H]
+            elif encoder_type == "transformer":
+                proj = self.transformer_input_proj[i](embedded)
+                proj = proj + self._positional_encoding(proj.size(1), proj.size(2), proj.device)
+                out = encoder(proj)                 # [B, T, H]
+            else:
+                raise ValueError(f"Unknown encoder type: {encoder_type}")
 
             # Timestep-level attention
             attn_score = attn_net(out)                 # [B, T, 1]
@@ -124,3 +190,13 @@ class VRScannerModel(nn.Module):
 
         return output
 
+    @staticmethod
+    def _positional_encoding(seq_len, dim, device):
+        position = torch.arange(seq_len, dtype=torch.float32, device=device).unsqueeze(1)
+        div_term = torch.exp(
+            torch.arange(0, dim, 2, dtype=torch.float32, device=device) * (-math.log(10000.0) / dim)
+        )
+        pe = torch.zeros(seq_len, dim, device=device)
+        pe[:, 0::2] = torch.sin(position * div_term)
+        pe[:, 1::2] = torch.cos(position * div_term)
+        return pe.unsqueeze(0)

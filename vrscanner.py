@@ -10,6 +10,7 @@ from vrscanner.experiment.general import (
 )
 from vrscanner.experiment.longitudinal import longitudinal_evaluation
 from vrscanner.experiment.openworld import openworld_evaluation
+from vrscanner.experiment.app_launch_detection import app_launch_detection_evaluation
 
 
 def main():
@@ -40,7 +41,9 @@ def main():
     if args.openworld_evaluation:
         openworld_evaluation(args)
 
+    if args.app_launch_detection_evaluation:
+        app_launch_detection_evaluation(args)
+
 
 if __name__ == "__main__":
     main()
-

@@ -39,7 +39,7 @@ def process_step2(args):
     logging.info(args)
     all_data, labels, class_names, _, all_names = load_data(args.path, args.pktcount)
 
-    model_list = ["gru", "bigru", "lstm", "bilstm", "rnn", "birnn"]
+    model_list = ["gru", "bigru", "lstm", "bilstm", "rnn", "birnn", "cnn", "transformer"]
     model_results = []
     for model in model_list:
         args.model = [model]
@@ -97,4 +97,3 @@ def _build_name(args):
     name += f"_{'-'.join(args.norm)}_{'-'.join(args.model)}"
     name += f"_{args.pktcount}_{args.batch_size}_{args.epoch}_{args.lr}_{args.input_dim}_{args.hidden_size}_{args.num_layers}_{args.dropout}_{args.fusion_dim}_{args.fc_hidden_size}"
     return name
-
